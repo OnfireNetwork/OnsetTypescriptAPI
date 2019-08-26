@@ -1,0 +1,1 @@
+declare type TimerCallback = (this: void) => void;
