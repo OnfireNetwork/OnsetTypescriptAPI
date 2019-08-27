@@ -31,6 +31,17 @@ class Server {
     static createExplosion(explosionId: number, location: Vector3d, soundExplosion?: boolean, camShakeRadius?: number, radialForce?: number): void {
         CreateExplosion(explosionId, location.x, location.y, location.z, soundExplosion, camShakeRadius, radialForce);
     }
+    static getTimers(): Timer[] {
+        let raw = GetAllTimers();
+        let result: Timer[] = [];
+        for(let id of raw){
+            result.push(this.getTimer(id));
+        }
+        return result;
+    }
+    static getTimer(id: number): Timer {
+        return new Timer(id);
+    }
     static getPlayers(): Player[] {
         let raw = GetAllPlayers();
         let result: Player[] = [];
