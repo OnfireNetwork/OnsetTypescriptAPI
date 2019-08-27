@@ -124,7 +124,6 @@ declare function SetVehicleRotation(vehicleId: number, rx: number, ry: number, r
 declare function SetVehicleHeading(vehicleId: number, heading: number): void;
 declare function GetVehicleHeading(vehicleId: number): number;
 declare function SetVehicleHealth(vehicleId: number, health: number): void;
-
 declare function SetVehicleLicensePlate(vehicleId: number, licensePlate: string): void;
 declare function CreateVehicle(modelId: number, x: number, y: number, z: number, h?: number): number;
 declare function DestroyVehicle(vehicleId: number): void;

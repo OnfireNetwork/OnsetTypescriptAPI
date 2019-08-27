@@ -1,8 +1,7 @@
 /** @noSelfInFile */
 
-class Vehicle {
+class Vehicle implements ISticky {
     constructor(private id: number) { }
-
     public setDimension(dimensionId: number): void {
         SetVehicleDimension(this.id, dimensionId);
     }
@@ -12,6 +11,9 @@ class Vehicle {
     public getId(): number {
         return this.id;
     }
+    public getType(): number {
+        return -1; //TODO
+    }
     public destroy(): void {
         DestroyVehicle(this.id);
     }
@@ -20,6 +22,9 @@ class Vehicle {
     }
     public getDriver(): Player {
         return new Player(GetVehicleDriver(this.id));
+    }
+    public getPassenger(seat: number): Player {
+        return new Player(GetVehiclePassenger(this.id, seat));
     }
     public getNumberOfSeats(): number {
         return GetVehicleNumberOfSeats(this.id);
@@ -57,20 +62,20 @@ class Vehicle {
     public getPassgener(seat: number): Player {
         return new Player(GetVehiclePassenger(this.id, seat));
     }
-    public getColor(): number {
-        return GetVehicleColor(this.id);
+    public getColor(): Color {
+        return Color.fromHex(GetVehicleColor(this.id));
     }
-    public setColor(color: number): void {
-        SetVehicleColor(this.id, color);
+    public setColor(color: Color): void {
+        SetVehicleColor(this.id, color.toHex());
     }
-    public getInteriorColor(): number {
-        return GetVehicleInteriorColor(this.id);
+    public getInteriorColor(): Color {
+        return Color.fromHex(GetVehicleInteriorColor(this.id));
     }
-    public setLinearVelocity(x: number, y: number, z: number): void {
-        SetVehicleLinearVelocity(this.id, x, y, z);
+    public setLinearVelocity(velocity: Vector3d): void {
+        SetVehicleLinearVelocity(this.id, velocity.x, velocity.y, velocity.z);
     }
-    public SetVehicleAngularVelocity(rx: number, ry: number, rz: number): void {
-        SetVehicleAngularVelocity(this.id, rx, ry, rz);
+    public setAngularVelocity(velocity: Vector3d): void {
+        SetVehicleAngularVelocity(this.id, velocity.x, velocity.y, velocity.z);
     }
     public getGear(): number {
         return GetVehicleGear(this.id);
@@ -93,7 +98,7 @@ class Vehicle {
     public stopEngine(): void {
         StopVehicleEngine(this.id);
     }
-    public getEngineState(): boolean {
+    public isEngineRunning(): boolean {
         return GetVehicleEngineState(this.id);
     }
     public getDamage(damageIndex: number): number {
@@ -108,10 +113,10 @@ class Vehicle {
     public setLightEnabled(enabled: boolean) {
         SetVehicleLightEnabled(this.id, enabled);
     }
-    public getLightState(): boolean {
+    public isLightEnabled(): boolean {
         return GetVehicleLightState(this.id);
     }
-    public getLightColor(): number {
-        return GetVehicleLightColor(this.id);
+    public getLightColor(): Color {
+        return Color.fromHex(GetVehicleLightColor(this.id));
     }
 }

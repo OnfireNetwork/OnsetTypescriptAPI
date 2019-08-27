@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class Player {
+class Player implements ISticky {
     constructor(private id: number) { }
     public setName(name: string): void {
         SetPlayerName(this.id, name);
@@ -37,6 +37,12 @@ class Player {
     }
     public isReloading(): boolean {
         return IsPlayerReloading(this.id);
+    }
+    public setSpawnLocation(location: Vector3d, heading: number): void {
+        SetPlayerSpawnLocation(this.id, location.x, location.y, location.z, heading);
+    }
+    public isStreamedIn(player: Player): boolean {
+        return IsPlayerStreamedIn(this.id, player.id);
     }
     public getLocation(): Vector3d {
         return Vector3d.fromTuple(GetPlayerLocation(this.id));
@@ -96,7 +102,7 @@ class Player {
         return GetPlayerHeadSize(this.id);
     }
     public getVehicle(): Vehicle {
-        return Server.getVehicle(GetPlayerVehicle(this.id));
+        return new Vehicle(GetPlayerVehicle(this.id));
     }
     public getVehicleSeat(): number {
         return GetPlayerVehicleSeat(this.id);
@@ -145,6 +151,9 @@ class Player {
     }
     public getId(): number {
         return this.id;
+    }
+    public getType(): number {
+        return -1; //TODO
     }
     public isValid(): boolean {
         return IsValidPlayer(this.id);
