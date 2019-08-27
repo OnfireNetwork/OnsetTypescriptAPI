@@ -1,9 +1,7 @@
 /** @noSelfInFile */
 
-import { DestroyWebUI, LoadWebFile, SetWebURL, SetWebSize } from "../../definition/Client";
-
-export default class Web {
-    constructor(private id: number) {}
+class Web {
+    constructor(private id: number) { }
     public destroy() {
         DestroyWebUI(this.id);
     }
@@ -17,3 +15,5 @@ export default class Web {
         SetWebSize(this.id, x, y);
     }
 }
+
+AddFunctionExport("Web", () => Web);

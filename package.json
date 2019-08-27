@@ -1,12 +1,12 @@
 {
-  "name": "OnsetTypescriptAPI",
-  "version": "1.0.0",
+  "name": "@onfireserver/onset-typescript-api",
+  "version": "1.0.6",
   "description": "",
   "scripts": {
     "build": "npx tstl -p tsconfig.json"
   },
   "keywords": [],
-  "author": "OnfireServer",
+  "author": "onfireserver",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.5.3",

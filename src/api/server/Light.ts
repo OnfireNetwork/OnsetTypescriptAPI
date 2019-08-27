@@ -1,10 +1,8 @@
 /** @noSelfInFile */
 
-import { SetLightDimension, GetLightDimension, DestroyLight, IsValidLight } from "../../definition/Server"
+class Light {
+    constructor(private id: number) { }
 
-export default class Light {
-    constructor(private id: number) {}
-    
     public setDimension(dimensionId: number): void {
         SetLightDimension(this.id, dimensionId);
     }
@@ -21,3 +19,5 @@ export default class Light {
         return IsValidLight(this.id);
     }
 }
+
+AddFunctionExport("Light", () => Light);

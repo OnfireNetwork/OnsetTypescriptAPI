@@ -1,9 +1,6 @@
 /** @noSelfInFile */
 
-import { PauseTimer, UnpauseTimer, DestroyTimer, GetTimerRemainingTime } from "../../definition/Common";
-
-
-export default class Timer {
+class Timer {
     constructor(private id: number){}
     public pause(): void {
         PauseTimer(this.id);
@@ -18,3 +15,5 @@ export default class Timer {
         return GetTimerRemainingTime(this.id);
     }
 }
+
+AddFunctionExport("Timer", () => Timer);

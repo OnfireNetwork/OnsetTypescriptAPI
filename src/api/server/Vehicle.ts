@@ -1,49 +1,8 @@
 /** @noSelfInFile */
 
-import {
-    SetVehicleDimension,
-    GetVehicleDimension,
-    DestroyVehicle,
-    IsValidVehicle,
-    GetVehicleDriver,
-    GetVehicleNumberOfSeats,
-    GetVehicleColor,
-    SetVehicleColor,
-    GetVehicleGear,
-    SetVehicleDamage,
-    GetVehicleDamage,
-    GetVehicleHealth,
-    SetVehicleHealth,
-    SetVehicleHeading,
-    GetVehicleHeading,
-    GetVehicleRotation,
-    GetVehicleModel,
-    GetVehicleLocation,
-    SetVehicleLocation,
-    SetVehicleRotation,
-    SetVehicleLicensePlate,
-    GetVehiclePassenger,
-    GetVehicleInteriorColor,
-    SetVehicleLinearVelocity,
-    SetVehicleAngularVelocity,
-    SetVehicleHoodRatio,
-    GetVehicleHoodRatio,
-    SetVehicleTrunkRatio,
-    GetVehicleTrunkRatio,
-    StartVehicleEngine,
-    StopVehicleEngine,
-    GetVehicleEngineState,
-    AttachVehicleNitro,
-    SetVehicleLightEnabled,
-    GetVehicleLightState,
-    GetVehicleLightColor
-} from "../../definition/Server";
-import Player from "./Player";
-import Vector3d from "../common/Vector3d";
+class Vehicle {
+    constructor(private id: number) { }
 
-export default class Vehicle {
-    constructor(private id: number){}
-    
     public setDimension(dimensionId: number): void {
         SetVehicleDimension(this.id, dimensionId);
     }
@@ -156,3 +115,5 @@ export default class Vehicle {
         return GetVehicleLightColor(this.id);
     }
 }
+
+AddFunctionExport("Vehicle", () => Vehicle);

@@ -1,13 +1,10 @@
 /** @noSelfInFile */
 
-import Sound from "./Sound";
-import { GetAllSounds, GetSoundCount, CreateSound, IsShiftPressed, IsCtrlPressed } from "../../definition/Client";
-
-export default class Client {
+class Client {
     static getSounds(): Sound[] {
         let raw = GetAllSounds();
         let result: Sound[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getSound(id));
         }
         return result;
@@ -28,3 +25,5 @@ export default class Client {
         return IsCtrlPressed();
     }
 }
+
+AddFunctionExport("Client", () => Client);

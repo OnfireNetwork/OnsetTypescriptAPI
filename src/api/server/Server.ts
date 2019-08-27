@@ -1,35 +1,6 @@
-import { 
-    GetTimeSeconds, 
-    GetDeltaSeconds, 
-    GetTickCount, 
-    GetGameVersion, 
-    GetGameVersionString, 
-    GetServerTickRate, 
-    SetServerName, 
-    GetServerName, 
-    GetMaxPlayers, 
-    CreateExplosion, 
-    GetAllPlayers, 
-    GetAllLights, 
-    GetAllPickups,
-    GetAllText3D, 
-    GetAllVehicles, 
-    GetAllNPC, 
-    ServerExit 
-} from "../../definition/Server";
-import Vector3d from "../common/Vector3d";
-import { GetAllTimers } from "../../definition/Common";
-import Player from "./Player";
-import Pickup from "./Pickup";
-import Text3D from "./Text3D";
-import Vehicle from "./Vehicle";
-import NPC from "./NPC";
-import Light from "./Light";
-import Timer from "../common/Timer";
-
 /** @noSelfInFile */
 
-export default class Server {
+class Server {
     static getTimeSeconds(): number {
         return GetTimeSeconds();
     }
@@ -63,7 +34,7 @@ export default class Server {
     static getTimers(): Timer[] {
         let raw = GetAllTimers();
         let result: Timer[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getTimer(id));
         }
         return result;
@@ -74,7 +45,7 @@ export default class Server {
     static getPlayers(): Player[] {
         let raw = GetAllPlayers();
         let result: Player[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getPlayer(id));
         }
         return result;
@@ -85,7 +56,7 @@ export default class Server {
     static getLights(): Light[] {
         let raw = GetAllLights();
         let result: Light[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getLight(id));
         }
         return result;
@@ -96,7 +67,7 @@ export default class Server {
     static getPickups(): Pickup[] {
         let raw = GetAllPickups();
         let result: Pickup[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getPickup(id));
         }
         return result;
@@ -107,7 +78,7 @@ export default class Server {
     static get3DTexts(): Text3D[] {
         let raw = GetAllText3D();
         let result: Text3D[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.get3DText(id));
         }
         return result;
@@ -118,7 +89,7 @@ export default class Server {
     static getVehicles(): Vehicle[] {
         let raw = GetAllVehicles();
         let result: Vehicle[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getVehicle(id));
         }
         return result;
@@ -129,10 +100,10 @@ export default class Server {
     static getObject(id: number): Object {
         return new Object(id);
     }
-    static getNPCs(): NPC[]{
+    static getNPCs(): NPC[] {
         let raw = GetAllNPC();
         let result: NPC[] = [];
-        for(let id of raw){
+        for (let id of raw) {
             result.push(this.getNPC(id));
         }
         return result;
@@ -144,3 +115,5 @@ export default class Server {
         ServerExit();
     }
 }
+
+AddFunctionExport("Server", () => Server);

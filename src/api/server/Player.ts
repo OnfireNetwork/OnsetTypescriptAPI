@@ -1,66 +1,14 @@
 /** @noSelfInFile */
 
-import {
-    SetPlayerName,
-    GetPlayerName,
-    GetPlayerSteamId,
-    SetPlayerVoiceEnabled,
-    IsPlayerVoiceEnabled,
-    IsPlayerTalking,
-    AddPlayerChat,
-    GetPlayerMovementSpeed,
-    IsPlayerAiming,
-    IsPlayerReloading,
-    GetPlayerLocation,
-    SetPlayerLocation,
-    GetPlayerHeading,
-    SetPlayerHeading,
-    SetPlayerSpectate,
-    ResetPlayerCamera,
-    IsPlayerDead,
-    IsValidPlayer,
-    KickPlayer,
-    GetPlayerArmor,
-    SetPlayerArmor,
-    GetPlayerDimension,
-    SetPlayerDimension,
-    SetPlayerAnimation,
-    SetPlayerModel,
-    GetPlayerModel,
-    GetPlayerGUID,
-    GetPlayerIP,
-    GetPlayerHeadSize,
-    GetPlayerHealth,
-    SetPlayerHeadSize,
-    SetPlayerHealth,
-    SetPlayerInVehicle,
-    SetPlayerRespawnTime,
-    GetPlayerRespawnTime,
-    GetPlayerPing,
-    GetPlayerVehicle,
-    GetPlayerVehicleSeat,
-    SetPlayerWeaponStat,
-    RemovePlayerFromVehicle,
-    AttachPlayerParachute,
-    GetPlayerGameVersion,
-    GetPlayerEquippedWeaponSlot,
-    GetPlayerLocale,
-    EquipPlayerWeaponSlot,
-    CallRemoteEvent
-} from "../../definition/Server";
-import Vector3d from "../common/Vector3d";
-import Vehicle from "./Vehicle";
-import Server from "./Server";
-
-export default class Player {
-    constructor(private id: number){}
+class Player {
+    constructor(private id: number) { }
     public setName(name: string): void {
         SetPlayerName(this.id, name);
     }
     public getName(): string {
         return GetPlayerName(this.id);
     }
-    public set name(name: string){
+    public set name(name: string) {
         this.setName(name);
     }
     public get name(): string {
@@ -202,3 +150,5 @@ export default class Player {
         return IsValidPlayer(this.id);
     }
 }
+
+AddFunctionExport("Player", () => Player);

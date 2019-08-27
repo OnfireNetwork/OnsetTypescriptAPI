@@ -1,10 +1,8 @@
 /** @noSelfInFile */
 
-import { SetObjectDimension, GetObjectDimension, DestroyVehicle, IsValidVehicle } from "../../definition/Server";
+class WorldObject {
+    constructor(private id: number) { }
 
-export default class WorldObject {
-    constructor(private id: number){}
-    
     public setDimension(dimensionId: number): void {
         SetObjectDimension(this.id, dimensionId);
     }
@@ -21,3 +19,5 @@ export default class WorldObject {
         return IsValidVehicle(this.id);
     }
 }
+
+AddFunctionExport("WorldObject", () => WorldObject);

@@ -1,7 +1,3 @@
-import { CreateSound, AddRemoteEvent, AddPlayerChat, CreateTextBox, SetTextBoxAnchors, SetTextBoxAlignment, SetTextBoxText, DestroyTextBox, SetIgnoreMoveInput, SetIgnoreLookInput, SetTime, GetTimeSeconds, CreateTimer, DestroyTimer, IsPlayerInVehicle, GetVehicleForwardSpeed, GetPlayerVehicle, GetVehicleGear, GetVehicleEngineRPM, GetVehicleHealth } from "../../../src/definition/Client";
-
-import { Delay } from "../../../src/definition/Common";
-
 /** @noSelfInFile */
 
 
@@ -23,7 +19,7 @@ function PlayAudioFile2(file: string): void {
 AddRemoteEvent("PlayAudioFile2", PlayAudioFile2);
 
 function RaceCountdown(time: number): void {
-    AddPlayerChat("Race countdown: " + time);
+    //AddPlayerChat("Race countdown: " + time);
 
 	let guiid = CreateTextBox(0.0, -200.0, '<span size="80" style="italic" color="#42f448">GO GO GO!</>', "center");
 	SetTextBoxAnchors(guiid, 0.5, 0.5, 0.5, 0.5);
@@ -58,7 +54,7 @@ function OnRaceJoin(world_time: number): void {
 AddRemoteEvent("OnRaceJoin", OnRaceJoin);
 
 function OnRaceStart(TimeForRaceSeconds: number): void {
-    AddPlayerChat('<span color="#88eb00" size="18">The race starts now!</>');
+    //AddPlayerChat('<span color="#88eb00" size="18">The race starts now!</>');
 
 	// Enable player controls
 	SetIgnoreMoveInput(false);
@@ -107,21 +103,21 @@ AddRemoteEvent("ServerUpdateRaceData", ServerUpdateRaceData)
 
 function SetRaceTextInfo(check: number, max_checks: number, pos: number, max_racers: number): void {
 	if (textRaceInfo != 0 && IsPlayerInVehicle()) {
-		let speed = Math.floor(GetVehicleForwardSpeed(GetPlayerVehicle()));
-	    let gear = GetVehicleGear(GetPlayerVehicle());
-	    let rpm = Math.floor(GetVehicleEngineRPM(GetPlayerVehicle()));
-		let health = Math.floor(GetVehicleHealth(GetPlayerVehicle()));
+		//let speed = Math.floor(GetVehicleForwardSpeed(GetPlayerVehicle()));
+		//let gear = GetVehicleGear(GetPlayerVehicle());
+	    //let rpm = Math.floor(GetVehicleEngineRPM(GetPlayerVehicle()));
+		//let health = Math.floor(GetVehicleHealth(GetPlayerVehicle()));
 
 	    let time_left = raceTime - (GetTimeSeconds() - raceStartTime);
 
-		SetTextBoxText(textRaceInfo, `
+		/*SetTextBoxText(textRaceInfo, `
 			<span size="30" style="bold" color="#fc4300">Checkpoint: ${check}/${max_checks}</>
 			<span size="30" style="bold" color="#fc4300">Time: ${FormatTime(time_left)}</> 
 			<span size="30" style="bold" color="#fc4300">Position: ${pos}/${max_racers}'</>
 			<span size="30" style="bold" color="#fc4300">Speed: ${speed} km/h</>
 			<span size="30" style="bold" color="#fc4300">Gear: ${gear}</>
 			<span size="30" style="bold" color="#fc4300">RPM: ${rpm}</>
-			<span size="30" style="bold" color="#fc4300">Health: ${health}</>`);
+			<span size="30" style="bold" color="#fc4300">Health: ${health}</>`); */
 	}
 }
 function FormatTime(time: number): string {

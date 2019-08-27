@@ -1,9 +1,7 @@
 /** @noSelfInFile */
 
-import { DestroySound, GetSoundPitch, SetSoundPitch, GetSoundVolume, SetSoundVolume, IsValidSound, GetSoundDuration } from "../../definition/Client";
-
-export default class Sound {
-    constructor(private id: number) {}
+class Sound {
+    constructor(private id: number) { }
     public destroy() {
         DestroySound(this.id);
     }
@@ -26,3 +24,5 @@ export default class Sound {
         return GetSoundDuration(this.id);
     }
 }
+
+AddFunctionExport("Sound", () => Sound);

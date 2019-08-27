@@ -1,28 +1,7 @@
 /** @noSelfInFile */
 
-import {
-    IsNPCStreamedIn,
-    GetNPCModel,
-    GetNPCHealth,
-    SetNPCLocation,
-    GetNPCLocation,
-    SetNPCAnimation,
-    SetNPCHeading,
-    GetNPCHeading,
-    SetNPCTargetLocation,
-    SetNPCFollowPlayer,
-    SetNPCFollowVehicle,
-    SetNPCDimension,
-    GetNPCDimension,
-    DestroyNPC,
-    IsValidNPC
-} from "../../definition/Server";
-import Vector3d from "../common/Vector3d";
-import Player from "./Player";
-import Vehicle from "./Vehicle";
-
-export default class NPC {
-    constructor(private id: number){}
+class NPC {
+    constructor(private id: number) { }
     public isStreamedIn(player: Player): boolean {
         return IsNPCStreamedIn(player.getId(), this.id);
     }
@@ -72,3 +51,5 @@ export default class NPC {
         return IsValidNPC(this.id);
     }
 }
+
+AddFunctionExport("NPC", () => NPC);

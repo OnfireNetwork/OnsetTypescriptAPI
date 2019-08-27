@@ -1,10 +1,8 @@
 /** @noSelfInFile */
 
-import { SetText3DDimension, GetText3DDimension, DestroyText3D, IsValidText3D } from "../../definition/Server";
+class Text3D {
+    constructor(private id: number) { }
 
-export default class Text3D {
-    constructor(private id: number){}
-    
     public setDimension(dimensionId: number): void {
         SetText3DDimension(this.id, dimensionId);
     }
@@ -21,3 +19,5 @@ export default class Text3D {
         return IsValidText3D(this.id);
     }
 }
+
+AddFunctionExport("Text3D", () => Text3D);
