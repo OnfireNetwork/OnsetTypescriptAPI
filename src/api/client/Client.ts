@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 class Client {
-    static getSounds(): Sound[] {
+    getSounds(): Sound[] {
         let raw = GetAllSounds();
         let result: Sound[] = [];
         for (let id of raw) {
@@ -9,19 +9,19 @@ class Client {
         }
         return result;
     }
-    static getSound(id: number): Sound {
+    getSound(id: number): Sound {
         return new Sound(id);
     }
-    static getSoundCount(): number {
+    getSoundCount(): number {
         return GetSoundCount();
     }
-    static createSound(soundFile: string, bLoop?: boolean): Sound {
+    createSound(soundFile: string, bLoop?: boolean): Sound {
         return this.getSound(CreateSound(soundFile, bLoop));
     }
-    static IsShiftPressed(): boolean {
+    isShiftPressed(): boolean {
         return IsShiftPressed();
     }
-    static IsCtrlPressed(): boolean {
+    isCtrlPressed(): boolean {
         return IsCtrlPressed();
     }
 }

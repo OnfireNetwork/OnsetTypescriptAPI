@@ -1,37 +1,37 @@
 /** @noSelfInFile */
 
 class Server {
-    static getTimeSeconds(): number {
+    getTimeSeconds(): number {
         return GetTimeSeconds();
     }
-    static getDeltaSeconds(): number {
+    getDeltaSeconds(): number {
         return GetDeltaSeconds();
     }
-    static getTickCount(): number {
+    getTickCount(): number {
         return GetTickCount();
     }
-    static getGameVersion(): number {
+    getGameVersion(): number {
         return GetGameVersion();
     }
-    static getGameVersionString(): string {
+    getGameVersionString(): string {
         return GetGameVersionString();
     }
-    static getTickRate(): number {
+    getTickRate(): number {
         return GetServerTickRate();
     }
-    static setName(name: string): void {
+    setName(name: string): void {
         SetServerName(name);
     }
-    static getName(): string {
+    getName(): string {
         return GetServerName();
     }
-    static getMaxPlayers(): number {
+    getMaxPlayers(): number {
         return GetMaxPlayers();
     }
-    static createExplosion(explosionId: number, location: Vector3d, soundExplosion?: boolean, camShakeRadius?: number, radialForce?: number): void {
+    createExplosion(explosionId: number, location: Vector3d, soundExplosion?: boolean, camShakeRadius?: number, radialForce?: number): void {
         CreateExplosion(explosionId, location.x, location.y, location.z, soundExplosion, camShakeRadius, radialForce);
     }
-    static getTimers(): Timer[] {
+    getTimers(): Timer[] {
         let raw = GetAllTimers();
         let result: Timer[] = [];
         for (let id of raw) {
@@ -39,10 +39,16 @@ class Server {
         }
         return result;
     }
-    static getTimer(id: number): Timer {
+    getTimer(id: number): Timer {
         return new Timer(id);
     }
-    static getPlayers(): Player[] {
+    createTimer(task: Function, interval: number, ...args: any[]): Timer {
+        return this.getTimer(CreateTimer(task, interval, args));
+    }
+    createCountTimer(task: Function, interval: number, count: number, ...args: any[]): Timer {
+        return this.getTimer(CreateCountTimer(task, interval, count, args));
+    }
+    getPlayers(): Player[] {
         let raw = GetAllPlayers();
         let result: Player[] = [];
         for (let id of raw) {
@@ -50,10 +56,10 @@ class Server {
         }
         return result;
     }
-    static getPlayer(id: number): Player {
+    getPlayer(id: number): Player {
         return new Player(id);
     }
-    static getLights(): Light[] {
+    getLights(): Light[] {
         let raw = GetAllLights();
         let result: Light[] = [];
         for (let id of raw) {
@@ -61,10 +67,13 @@ class Server {
         }
         return result;
     }
-    static getLight(id: number): Light {
+    getLight(id: number): Light {
         return new Light(id);
     }
-    static getPickups(): Pickup[] {
+    createLight(lightType: number, intensity: number, x: number, y: number, z: number, rx?: number, ry?: number, rz?: number): Light {
+        return this.getLight(CreateLight(lightType, intensity, x, y, z, rx, ry, rz));
+    }
+    getPickups(): Pickup[] {
         let raw = GetAllPickups();
         let result: Pickup[] = [];
         for (let id of raw) {
@@ -72,10 +81,10 @@ class Server {
         }
         return result;
     }
-    static getPickup(id: number): Pickup {
+    getPickup(id: number): Pickup {
         return new Pickup(id);
     }
-    static get3DTexts(): Text3D[] {
+    get3DTexts(): Text3D[] {
         let raw = GetAllText3D();
         let result: Text3D[] = [];
         for (let id of raw) {
@@ -83,10 +92,10 @@ class Server {
         }
         return result;
     }
-    static get3DText(id: number): Text3D {
+    get3DText(id: number): Text3D {
         return new Text3D(id);
     }
-    static getVehicles(): Vehicle[] {
+    getVehicles(): Vehicle[] {
         let raw = GetAllVehicles();
         let result: Vehicle[] = [];
         for (let id of raw) {
@@ -94,13 +103,13 @@ class Server {
         }
         return result;
     }
-    static getVehicle(id: number): Vehicle {
+    getVehicle(id: number): Vehicle {
         return new Vehicle(id);
     }
-    static getObject(id: number): Object {
+    getObject(id: number): Object {
         return new Object(id);
     }
-    static getNPCs(): NPC[] {
+    getNPCs(): NPC[] {
         let raw = GetAllNPC();
         let result: NPC[] = [];
         for (let id of raw) {
@@ -108,10 +117,13 @@ class Server {
         }
         return result;
     }
-    static getNPC(id: number): NPC {
+    getNPC(id: number): NPC {
         return new NPC(id);
     }
-    static exit(): void {
+    createNPC(modelId: number, location: Vector3d, h: number): NPC {
+        return this.getNPC(CreateNPC(modelId, location.x, location.y, location.z, h));
+    }
+    exit(): void {
         ServerExit();
     }
 }
