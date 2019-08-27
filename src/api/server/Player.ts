@@ -90,7 +90,7 @@ class Player {
         return GetPlayerHeadSize(this.id);
     }
     public getVehicle(): Vehicle {
-        return new Vehicle(GetPlayerVehicle(this.id));
+        return Server.getVehicle(GetPlayerVehicle(this.id));
     }
     public getVehicleSeat(): number {
         return GetPlayerVehicleSeat(this.id);
