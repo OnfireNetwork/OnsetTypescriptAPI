@@ -15,5 +15,3 @@ class Timer {
         return GetTimerRemainingTime(this.id);
     }
 }
-
-AddFunctionExport("Timer", () => Timer);

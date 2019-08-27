@@ -51,5 +51,3 @@ class NPC {
         return IsValidNPC(this.id);
     }
 }
-
-AddFunctionExport("NPC", () => NPC);

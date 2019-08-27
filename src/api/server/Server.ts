@@ -115,5 +115,3 @@ class Server {
         ServerExit();
     }
 }
-
-AddFunctionExport("Server", () => Server);

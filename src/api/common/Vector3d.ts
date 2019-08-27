@@ -9,5 +9,3 @@ class Vector3d {
         return new Vector3d(tuple[0], tuple[1], tuple[2]);
     }
 }
-
-AddFunctionExport("Vector3d", () => Vector3d);

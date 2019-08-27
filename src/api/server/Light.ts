@@ -19,5 +19,3 @@ class Light {
         return IsValidLight(this.id);
     }
 }
-
-AddFunctionExport("Light", () => Light);

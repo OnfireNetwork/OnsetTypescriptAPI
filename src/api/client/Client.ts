@@ -25,5 +25,3 @@ class Client {
         return IsCtrlPressed();
     }
 }
-
-AddFunctionExport("Client", () => Client);

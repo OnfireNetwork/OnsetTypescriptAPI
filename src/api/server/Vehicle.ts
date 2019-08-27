@@ -115,5 +115,3 @@ class Vehicle {
         return GetVehicleLightColor(this.id);
     }
 }
-
-AddFunctionExport("Vehicle", () => Vehicle);

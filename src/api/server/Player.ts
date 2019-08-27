@@ -150,5 +150,3 @@ class Player {
         return IsValidPlayer(this.id);
     }
 }
-
-AddFunctionExport("Player", () => Player);

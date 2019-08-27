@@ -24,5 +24,3 @@ class Pickup {
         return IsValidPickup(this.id);
     }
 }
-
-AddFunctionExport("Pickup", () => Pickup);

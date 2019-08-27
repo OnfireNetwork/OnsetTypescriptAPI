@@ -15,5 +15,3 @@ class Web {
         SetWebSize(this.id, x, y);
     }
 }
-
-AddFunctionExport("Web", () => Web);

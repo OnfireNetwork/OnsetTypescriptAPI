@@ -19,5 +19,3 @@ class WorldObject {
         return IsValidVehicle(this.id);
     }
 }
-
-AddFunctionExport("WorldObject", () => WorldObject);

@@ -24,5 +24,3 @@ class Sound {
         return GetSoundDuration(this.id);
     }
 }
-
-AddFunctionExport("Sound", () => Sound);

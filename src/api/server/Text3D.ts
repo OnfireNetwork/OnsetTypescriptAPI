@@ -19,5 +19,3 @@ class Text3D {
         return IsValidText3D(this.id);
     }
 }
-
-AddFunctionExport("Text3D", () => Text3D);
