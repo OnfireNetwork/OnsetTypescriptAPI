@@ -8,6 +8,12 @@ class Player {
     public getName(): string {
         return GetPlayerName(this.id);
     }
+    public set name(name: string){
+        this.setName(name);
+    }
+    public get name(): string {
+        return this.getName();
+    }
     public getSteamId(): string {
         return GetPlayerSteamId(this.id);
     }
