@@ -5,6 +5,7 @@ declare function ServerExit(): void;
 declare function SetServerName(name: string): void;
 declare function GetServerName(): string;
 declare function GetMaxPlayers(): number;
+declare function GetGameVersionString(): string;
 // Explosions
 declare function CreateExplosion(explosionId: number, x: number, y: number, z: number, soundExplosion?: boolean, camShakeRadius?: number, radialForce?: number): void;
 // Lights

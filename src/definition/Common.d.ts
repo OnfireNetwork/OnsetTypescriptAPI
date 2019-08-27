@@ -41,7 +41,6 @@ declare function GetDistance3D(x: number, y: number, z: number, x2: number, y2: 
 
 // Infos
 declare function GetGameVersion(): number;
-declare function GetGameVersionString(): string;
 
 // Counts
 declare function GetPlayerCount(): number;

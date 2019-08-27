@@ -1,11 +1,9 @@
-
 /** @noSelfInFile */
 
+declare function GetPlayerId(): number;
 declare function GetAllCollisions(): number[];
-declare function CreateCollisionBox(x: number, y: number, z: number, bx: number, by: number, bz: number): number;
-declare function CreateCollisionBox(x: number, y: number, z: number, bx: number, by: number, bz: number, bVisible: boolean): number;
-declare function CreateCollisionSphere(x: number, y: number, z: number, radius: number): number;
-declare function CreateCollisionSphere(x: number, y: number, z: number, radius: number, bVisible: boolean): number;
+declare function CreateCollisionBox(x: number, y: number, z: number, bx: number, by: number, bz: number, bVisible?: boolean): number;
+declare function CreateCollisionSphere(x: number, y: number, z: number, radius: number, bVisible?: boolean): number;
 declare function DestroyCollision(collision: number): void;
 declare function SetCameraShakeLocation(XAmp: number, XFreq: number, YAmp: number, YFreq: number, ZAmp: number, ZFreq: number): void;
 declare function StopCameraFade(): void;
@@ -65,7 +63,7 @@ declare function DrawLine(sX: number, sY: number, eX: number, eY: number): numbe
 declare function DrawLine(sX: number, sY: number, eX: number, eY: number, thickness: number, r: number, g: number, b: number): number;
 declare function SetFogDensity(density: number): void;
 //declare function GetPlayerBoneLocation(player: number, BoneName: string [, BoneSpace]): void;
-//declare function EnableObjectHitEvents(object [, bEnable]): void;
+declare function EnableObjectHitEvents(objectId: number, enable?: boolean): void;
 declare function GetSoundCount(): number;
 declare function DestroyTextBox(textid: number): void;
 //declare function GetInputAxisValue(AxisName: string): void;
@@ -77,8 +75,7 @@ declare function GetPlayerCameraLocation(): [number, number, number];
 declare function GetAllCollisions(): number[];
 declare function GetTerrainHeight(sX: number, sY: number, sZ: number): number;
 //declare function GetPlayerCameraRightVector(): void;
-declare function SetObjectOutline(object: number): void;
-declare function SetObjectOutline(object: number, bEnable: boolean): void;
+declare function SetObjectOutline(object: number, bEnable?: boolean): void;
 declare function SetDrawColor(HexColor: string): void;
 declare function DrawLine3D(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number): void;
 declare function DrawLine3D(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, r: number, g: number, b: number): void;
@@ -101,12 +98,11 @@ declare function SetSunLightIntensity(intensity: number): void;
 declare function SetSunShine(shine: number): void;
 declare function GetPing(): number;
 //declare function GetNetworkStats(): void;
-//declare function GetStreamedNPC(): void;
+declare function GetStreamedNPC(): number[];
 //declare function SetInputMode(InputMode): void;
 /** @tupleReturn */
 declare function GetLightLocation(light: number): [number, number, number];
-declare function SetNPCOutline(npc: number): void;
-declare function SetNPCOutline(npc: number, bEnable: boolean): void;
+declare function SetNPCOutline(npc: number, bEnable?: boolean): void;
 //declare function SetWeather(weather): void;
 declare function GetTime(): number;
 //declare function GetObjectBoundingBox(object: number): void;
