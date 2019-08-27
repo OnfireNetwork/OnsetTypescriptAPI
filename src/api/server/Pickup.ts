@@ -1,6 +1,9 @@
 /** @noSelfInFile */
 
-class Pickup {
+import { SetPickupScale, GetPickupScale, SetPickupDimension, GetPickupDimension, DestroyPickup, IsValidPickup } from "../../definition/Server";
+import Vector3d from "../common/Vector3d";
+
+export default class Pickup {
     constructor(private id: number){}
     public setScale(scale: Vector3d): void {
         SetPickupScale(this.id, scale.x, scale.y, scale.z);

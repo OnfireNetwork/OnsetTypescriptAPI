@@ -1,6 +1,58 @@
 /** @noSelfInFile */
 
-class Player {
+import {
+    SetPlayerName,
+    GetPlayerName,
+    GetPlayerSteamId,
+    SetPlayerVoiceEnabled,
+    IsPlayerVoiceEnabled,
+    IsPlayerTalking,
+    AddPlayerChat,
+    GetPlayerMovementSpeed,
+    IsPlayerAiming,
+    IsPlayerReloading,
+    GetPlayerLocation,
+    SetPlayerLocation,
+    GetPlayerHeading,
+    SetPlayerHeading,
+    SetPlayerSpectate,
+    ResetPlayerCamera,
+    IsPlayerDead,
+    IsValidPlayer,
+    KickPlayer,
+    GetPlayerArmor,
+    SetPlayerArmor,
+    GetPlayerDimension,
+    SetPlayerDimension,
+    SetPlayerAnimation,
+    SetPlayerModel,
+    GetPlayerModel,
+    GetPlayerGUID,
+    GetPlayerIP,
+    GetPlayerHeadSize,
+    GetPlayerHealth,
+    SetPlayerHeadSize,
+    SetPlayerHealth,
+    SetPlayerInVehicle,
+    SetPlayerRespawnTime,
+    GetPlayerRespawnTime,
+    GetPlayerPing,
+    GetPlayerVehicle,
+    GetPlayerVehicleSeat,
+    SetPlayerWeaponStat,
+    RemovePlayerFromVehicle,
+    AttachPlayerParachute,
+    GetPlayerGameVersion,
+    GetPlayerEquippedWeaponSlot,
+    GetPlayerLocale,
+    EquipPlayerWeaponSlot,
+    CallRemoteEvent
+} from "../../definition/Server";
+import Vector3d from "../common/Vector3d";
+import Vehicle from "./Vehicle";
+import Server from "./Server";
+
+export default class Player {
     constructor(private id: number){}
     public setName(name: string): void {
         SetPlayerName(this.id, name);

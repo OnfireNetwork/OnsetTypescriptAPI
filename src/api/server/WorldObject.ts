@@ -1,6 +1,8 @@
 /** @noSelfInFile */
 
-class WorldObject {
+import { SetObjectDimension, GetObjectDimension, DestroyVehicle, IsValidVehicle } from "../../definition/Server";
+
+export default class WorldObject {
     constructor(private id: number){}
     
     public setDimension(dimensionId: number): void {

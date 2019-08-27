@@ -1,6 +1,9 @@
 /** @noSelfInFile */
 
-class Timer {
+import { PauseTimer, UnpauseTimer, DestroyTimer, GetTimerRemainingTime } from "../../definition/Common";
+
+
+export default class Timer {
     constructor(private id: number){}
     public pause(): void {
         PauseTimer(this.id);

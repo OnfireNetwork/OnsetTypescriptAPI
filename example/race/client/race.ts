@@ -1,3 +1,7 @@
+import { CreateSound, AddRemoteEvent, AddPlayerChat, CreateTextBox, SetTextBoxAnchors, SetTextBoxAlignment, SetTextBoxText, DestroyTextBox, SetIgnoreMoveInput, SetIgnoreLookInput, SetTime, GetTimeSeconds, CreateTimer, DestroyTimer, IsPlayerInVehicle, GetVehicleForwardSpeed, GetPlayerVehicle, GetVehicleGear, GetVehicleEngineRPM, GetVehicleHealth } from "../../../src/definition/Client";
+
+import { Delay } from "../../../src/definition/Common";
+
 /** @noSelfInFile */
 
 

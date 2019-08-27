@@ -1,7 +1,9 @@
 /** @noSelfInFile */
 
-class Light {
-    constructor(private id: number){}
+import { SetLightDimension, GetLightDimension, DestroyLight, IsValidLight } from "../../definition/Server"
+
+export default class Light {
+    constructor(private id: number) {}
     
     public setDimension(dimensionId: number): void {
         SetLightDimension(this.id, dimensionId);

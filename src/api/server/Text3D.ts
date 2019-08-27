@@ -1,6 +1,8 @@
 /** @noSelfInFile */
 
-class Text3D {
+import { SetText3DDimension, GetText3DDimension, DestroyText3D, IsValidText3D } from "../../definition/Server";
+
+export default class Text3D {
     constructor(private id: number){}
     
     public setDimension(dimensionId: number): void {

@@ -1,6 +1,35 @@
+import { 
+    GetTimeSeconds, 
+    GetDeltaSeconds, 
+    GetTickCount, 
+    GetGameVersion, 
+    GetGameVersionString, 
+    GetServerTickRate, 
+    SetServerName, 
+    GetServerName, 
+    GetMaxPlayers, 
+    CreateExplosion, 
+    GetAllPlayers, 
+    GetAllLights, 
+    GetAllPickups,
+    GetAllText3D, 
+    GetAllVehicles, 
+    GetAllNPC, 
+    ServerExit 
+} from "../../definition/Server";
+import Vector3d from "../common/Vector3d";
+import { GetAllTimers } from "../../definition/Common";
+import Player from "./Player";
+import Pickup from "./Pickup";
+import Text3D from "./Text3D";
+import Vehicle from "./Vehicle";
+import NPC from "./NPC";
+import Light from "./Light";
+import Timer from "../common/Timer";
+
 /** @noSelfInFile */
 
-class Server {
+export default class Server {
     static getTimeSeconds(): number {
         return GetTimeSeconds();
     }
