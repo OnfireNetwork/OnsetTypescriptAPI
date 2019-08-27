@@ -1,0 +1,5 @@
+/** @noSelfInFile */
+
+class Client {
+    
+}
