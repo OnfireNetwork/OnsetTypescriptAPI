@@ -10,9 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.5.3",
-    "typescript-to-lua": "^0.26.0"
-  },
-  "dependencies": {
+    "typescript-to-lua": "^0.26.0",
     "@types/node": "^12.7.2"
   }
 }

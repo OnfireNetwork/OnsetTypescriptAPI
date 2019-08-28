@@ -74,11 +74,11 @@ Client.listenRemote("OnRaceExit", () => {
 	raceTime = 0
 });
 
-Client.listenRemote("ServerUpdateRaceData", (checkpoint: number, max_checkpoints: number, position: number, max_racers: number) => {
+Client.listenRemote("ServerUpdateRaceData", (checkpoint: number, maxCheckpoints: number, position: number, maxRacers: number) => {
 	currentCheckpoint = checkpoint
-	maxCheckpoints = max_checkpoints
+	maxCheckpoints = maxCheckpoints
 	currentPosition = position
-	maxRacers = max_racers
+	maxRacers = maxRacers
 });
 
 function setRaceTextInfo(check: number, maxChecks: number, pos: number, maxRacers: number): void {
