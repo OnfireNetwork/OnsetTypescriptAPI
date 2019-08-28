@@ -3,13 +3,16 @@
   "version": "1.0.6",
   "description": "",
   "scripts": {
-    "build": "npx tstl -p tsconfig.json"
+    "build": "node tools/build.js"
   },
   "keywords": [],
-  "author": "onfireserver",
+  "author": "onfirenetwork",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.5.3",
     "typescript-to-lua": "^0.26.0"
+  },
+  "dependencies": {
+    "@types/node": "^12.7.2"
   }
 }
