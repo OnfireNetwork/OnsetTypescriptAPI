@@ -81,7 +81,7 @@ Client.listenRemote("ServerUpdateRaceData", (checkpoint: number, max_checkpoints
 	maxRacers = max_racers
 });
 
-function setRaceTextInfo(check: number, max_checks: number, pos: number, max_racers: number): void {
+function setRaceTextInfo(check: number, maxChecks: number, pos: number, maxRacers: number): void {
 	let player = Client.getPlayer();
 	if (textRaceInfo !== undefined && player.isInVehicle()) {
 		let vehicle = player.getVehicle();
@@ -91,9 +91,9 @@ function setRaceTextInfo(check: number, max_checks: number, pos: number, max_rac
 		let health = Math.floor(vehicle.getHealth());
 	    let time_left = raceTime - (Client.getTimeSeconds() - raceStartTime);
 		textRaceInfo.setText(`
-			<span size="30" style="bold" color="#fc4300">Checkpoint: ${check}/${max_checks}</>
+			<span size="30" style="bold" color="#fc4300">Checkpoint: ${check}/${maxChecks}</>
 			<span size="30" style="bold" color="#fc4300">Time: ${formatTime(time_left)}</> 
-			<span size="30" style="bold" color="#fc4300">Position: ${pos}/${max_racers}'</>
+			<span size="30" style="bold" color="#fc4300">Position: ${pos}/${maxRacers}'</>
 			<span size="30" style="bold" color="#fc4300">Speed: ${speed} km/h</>
 			<span size="30" style="bold" color="#fc4300">Gear: ${gear}</>
 			<span size="30" style="bold" color="#fc4300">RPM: ${rpm}</>
