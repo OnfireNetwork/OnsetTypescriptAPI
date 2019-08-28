@@ -35,8 +35,7 @@ declare function GetPlayerRotationRate(): number;
 declare function GetMouseLocation(): [number, number];
 //declare function GetPlayerCameraUpVector(): number;
 declare function SetTextBoxText(textid: number, text: string): void;
-declare function CreateTextBox(x: number, y: number, text: string, justification: any): number;
-declare function CreateTextBox(x: number, y: number, text: string): number;
+declare function CreateTextBox(x: number, y: number, text: string, justification: string): number;
 declare function SetStarsBrightness(brightness: number): void;
 //declare function DrawTexture(): void;
 //declare function WorldToScreen(x: number, y: number, z: number): void;
@@ -45,13 +44,11 @@ declare function SetSunAzimuth(azimuth: number): void;
 declare function CreateSound(SoundFile: string, bLoop?: boolean): number;
 declare function SetOceanColor(HexColor: string): void;
 declare function GetMouseInputDelta(): number;
-declare function IsPlayerInVehicle(player: number): boolean;
-declare function IsPlayerInVehicle(): boolean;
+declare function IsPlayerInVehicle(player?: number): boolean;
 declare function SetDrawScale(sx: number, sy: number): void;
 declare function SetSkyRotationSpeed(speed: number): void;
 declare function GetAllSounds(): number[];
-declare function LineTrace(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number): number;
-declare function LineTrace(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, complex: number): number;
+declare function LineTrace(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, complex?: number): number;
 declare function ShowChat(show: boolean): void;
 declare function SetTextBoxAnchors(textid: number, minX: number, minY: number, maxX: number, maxY: number): void;
 declare function CreateSound3D(soundFile: string, x: number, y: number, z: number, radius?: number, bLoop?: boolean): number;
@@ -67,7 +64,7 @@ declare function EnableObjectHitEvents(objectId: number, enable?: boolean): void
 declare function GetSoundCount(): number;
 declare function DestroyTextBox(textid: number): void;
 //declare function GetInputAxisValue(AxisName: string): void;
-//  declare function AddPlayerChat(message: string): void; -> Is on Client and Server, but with different signature
+declare function AddPlayerChat(message: string): void;
 declare function DestroySound(sound: number): void;
 declare function SetPlayerRotationRate(RotationRate: number): void;
 /** @tupleReturn */

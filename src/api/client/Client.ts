@@ -1,6 +1,35 @@
 /** @noSelfInFile */
 
 class Client {
+    public static getTimeSeconds(): number {
+        return GetTimeSeconds();
+    }
+    public static getDeltaSeconds(): number {
+        return GetDeltaSeconds();
+    }
+    public static getGameVersion(): number {
+        return GetGameVersion();
+    }
+    public static delay(millis: number, task: Function): void {
+        Delay(millis, task);
+    }
+    public static getTimers(): Timer[] {
+        let raw = GetAllTimers();
+        let result: Timer[] = [];
+        for (let id of raw) {
+            result.push(this.getTimer(id));
+        }
+        return result;
+    }
+    public static getTimer(id: number): Timer {
+        return new Timer(id);
+    }
+    public static createTimer(task: Function, interval: number, ...args: any[]): Timer {
+        return this.getTimer(CreateTimer(task, interval, args));
+    }
+    public static createCountTimer(task: Function, interval: number, count: number, ...args: any[]): Timer {
+        return this.getTimer(CreateCountTimer(task, interval, count, args));
+    }
     public static getCollisions(): Collision[] {
         let raw = GetAllCollisions();
         let result: Collision[] = [];
@@ -65,5 +94,30 @@ class Client {
     }
     public static isCtrlPressed(): boolean {
         return IsCtrlPressed();
+    }
+    public static listen(event: string, handler: Function): void {
+        AddEvent(event, handler);
+    }
+    public static listenRemote(event: string, handler: Function): void {
+        AddRemoteEvent(event, handler);
+    }
+    public static printChat(message: string): void {
+        AddPlayerChat(message);
+    }
+    public static setTime(worldTime: number): void {
+        SetTime(worldTime);
+    }
+    public static setIgnoreMoveInput(ignore: boolean): void {
+        SetIgnoreMoveInput(ignore);
+    }
+    public static setIgnoreLookInput(ignore: boolean): void {
+        SetIgnoreLookInput(ignore);
+    }
+    public static getPlayer(id?: number): ClientPlayer {
+        if(id !== undefined){
+            return new ClientPlayer(id);
+        }else{
+            return new ClientPlayer(GetPlayerId());
+        }
     }
 }

@@ -65,9 +65,9 @@ declare function GetObjectModel(objectId: number): number;
 declare function GetObjectRotation(objectId: number): [number, number, number];
 
 // Player
-declare function GetPlayerVehicle(playerId: number): number;
-declare function GetPlayerHealth(playerId: number): number;
-declare function GetPlayerArmor(playerId: number): number;
+declare function GetPlayerVehicle(playerId?: number): number;
+declare function GetPlayerHealth(playerId?: number): number;
+declare function GetPlayerArmor(playerId?: number): number;
 declare function GetPlayerWeapon(playerId: number, weaponSlot?: number): number; //Unclear
 declare function GetPlayerMovementMode(playerId: number): number; //Unclear
 declare function GetPlayerMovementSpeed(playerId: number): number;

@@ -113,7 +113,7 @@ declare function GetPlayerHeadSize(playerId: number): number;
 declare function GetAllText3D(): number[];
 declare function CreateText3D(text: string, size: number, x: number, y: number, z: number, rx: number, ry: number, rz: number): number;
 declare function DestroyText3D(text3DId: number): void;
-declare function SetText3DAttached(text3DId: number, attachType: number, attachId: number, x: number, y: number, z: number, rx?: number, ry?: number, rz?: number, socketName?: number): void;
+declare function SetText3DAttached(text3DId: number, attachType: number, attachId: number, x: number, y: number, z: number, rx?: number, ry?: number, rz?: number, socketName?: string): void;
 // Vehicles
 declare function GetAllVehicles(): number[];
 declare function GetVehicleModelName(vehicleId: number): string;

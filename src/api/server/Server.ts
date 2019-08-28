@@ -31,6 +31,9 @@ class Server {
     public static createExplosion(explosionId: number, location: Vector3d, soundExplosion?: boolean, camShakeRadius?: number, radialForce?: number): void {
         CreateExplosion(explosionId, location.x, location.y, location.z, soundExplosion, camShakeRadius, radialForce);
     }
+    public static delay(millis: number, task: Function): void {
+        Delay(millis, task);
+    }
     public static getTimers(): Timer[] {
         let raw = GetAllTimers();
         let result: Timer[] = [];
@@ -143,6 +146,12 @@ class Server {
     }
     public static broadcastRange(location: Vector2d, range: number, message: string): void {
         AddPlayerChatRange(location.x, location.y, range, message);
+    }
+    public static listen(event: string, handler: Function): void {
+        AddEvent(event, handler);
+    }
+    public static listenRemote(event: string, handler: Function): void {
+        AddRemoteEvent(event, handler);
     }
     public static exit(): void {
         ServerExit();
