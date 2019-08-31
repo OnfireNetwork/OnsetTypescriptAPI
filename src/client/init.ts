@@ -115,6 +115,3 @@ function setInput(val: boolean) {
 	Client.setIgnoreMoveInput(val);
 	Client.setIgnoreLookInput(val);
 }
-
-const d = new Dimension(20);
-d.setDimension(new Vehicle(2));
