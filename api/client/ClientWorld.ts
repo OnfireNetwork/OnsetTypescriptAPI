@@ -5,12 +5,7 @@ class ClientWorld {
         SetTime(worldTime);
     }
     public getCollisions(): Collision[] {
-        let raw = GetAllCollisions();
-        let result: Collision[] = [];
-        for (let id of raw) {
-            result.push(this.getCollision(id));
-        }
-        return result;
+        return GetAllCollisions().map(id => this.getCollision(id));
     }
     public getCollision(id: number): Collision {
         return new Collision(id);
@@ -22,23 +17,13 @@ class ClientWorld {
         return this.getCollision(CreateCollisionSphere(location.x, location.y, location.z, radius, visible));
     }
     public getObjects(): ClientWorldObject[] {
-        let raw = GetStreamedObjects();
-        let result: ClientWorldObject[] = [];
-        for (let id of raw) {
-            result.push(this.getObject(id));
-        }
-        return result;
+        return GetStreamedObjects().map(id => this.getObject(id));
     }
     public getObject(id: number): ClientWorldObject {
         return new ClientWorldObject(id);
     }
     public getNPCs(): ClientNPC[] {
-        let raw = GetStreamedNPC();
-        let result: ClientNPC[] = [];
-        for (let id of raw) {
-            result.push(this.getNPC(id));
-        }
-        return result;
+        return GetStreamedNPC().map(id => this.getNPC(id));
     }
     public getNPC(id: number): ClientNPC {
         return new ClientNPC(id);
