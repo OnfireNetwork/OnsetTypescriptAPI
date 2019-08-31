@@ -11,8 +11,8 @@ class Web {
     public setURL(url: string) {
         SetWebURL(this.id, url);
     }
-    public setSize(size: Vector2d) {
-        SetWebSize(this.id, size.x, size.y);
+    public setSize(width: number, height: number) {
+        SetWebSize(this.id, width, height);
     }
     public isVisible(): boolean {
         return GetWebVisibility(this.id);
