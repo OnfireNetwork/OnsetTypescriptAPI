@@ -41,7 +41,7 @@ Client.listenRemote("OnRaceJoin", (worldTime: number) => {
 	Client.setIgnoreMoveInput(true);
 	Client.setIgnoreLookInput(true);
 	if (worldTime && worldTime != -1)
-		Client.setTime(worldTime);
+		Client.getWorld().setTime(worldTime);
 });
 
 Client.listenRemote("OnRaceStart", (timeForRace: number) => {

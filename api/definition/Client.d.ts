@@ -183,3 +183,7 @@ declare function SetIgnoreLookInput(bIgnore: boolean): void;
 declare function IsShiftPressed(): boolean;
 declare function IsCtrlPressed(): boolean;
 declare function CreateWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
+declare function ReplaceObjectModelMesh(modelId: number, file: string): boolean;
+declare function DoesPakExist(name: string): boolean
+declare function LoadPak(name: string, rootPath: string, contentPath: string): boolean;
+declare function ConnectToServer(address: string, port: number, password?: string): void;
