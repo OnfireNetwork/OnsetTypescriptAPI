@@ -67,7 +67,7 @@ declare function GetAllCollisions(): number[];
 declare function GetTerrainHeight(sX: number, sY: number, sZ: number): number;
 //declare function GetPlayerCameraRightVector(): void;
 declare function SetObjectOutline(object: number, bEnable?: boolean): void;
-declare function SetDrawColor(HexColor: string): void;
+declare function SetDrawColor(HexColor: number): void;
 declare function DrawLine3D(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, r?: number, g?: number, b?: number): void;
 declare function SetChatLocation(x: number, y: number): void;
 declare function SetObjectEditable(object: number, editMode: boolean): void;

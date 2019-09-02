@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class Web {
+class ClientWebUI {
     constructor(private id: number) { }
     public destroy() {
         DestroyWebUI(this.id);
