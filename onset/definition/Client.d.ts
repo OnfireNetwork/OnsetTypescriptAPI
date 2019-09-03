@@ -45,7 +45,8 @@ declare function IsPlayerInVehicle(player?: number): boolean;
 declare function SetDrawScale(sx: number, sy: number): void;
 declare function SetSkyRotationSpeed(speed: number): void;
 declare function GetAllSounds(): number[];
-declare function LineTrace(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, complex?: number): number;
+/** @tupleReturn */
+declare function LineTrace(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, complex?: boolean): [number, number, number, number, number, number]|false;
 declare function ShowChat(show: boolean): void;
 declare function SetTextBoxAnchors(textid: number, minX: number, minY: number, maxX: number, maxY: number): void;
 declare function CreateSound3D(soundFile: string, x: number, y: number, z: number, radius?: number, bLoop?: boolean): number;
@@ -131,19 +132,21 @@ declare function GetObjectMass(object: number): number;
 //declare function GetMouseHitLocation(): void;
 declare function SetSoundPitch(sound: number, pitch: number): number;
 declare function GetSoundVolume(sound: number): number;
-//declare function SetSoundFadeOut(sound, Duration, VolumeLevel): void;
+declare function SetSoundFadeOut(sound: number, Duration: number, VolumeLevel: number): void;
 declare function GetSoundPitch(sound: number): number;
 declare function IsFloatNearlyZero(Value: number): boolean;
 declare function GetSoundDuration(sound: number): number;
-//declare function GetVehicleRightVector(vehicle: number): void;
 /** @tupleReturn */
-declare function GetVehicleDoorLocation(vehicle: number, door: number): [number, number, number];
-//declare function GetVehicleForwardVector(vehicle): void;
+declare function GetVehicleRightVector(vehicle: number): [number,number,number];
+declare function GetVehicleDoorLocation(vehicle: number, door: number): boolean;
+/** @tupleReturn */
+declare function GetVehicleForwardVector(vehicle: number): [number,number,number];
+/** @tupleReturn */
+declare function GetVehicleVelocity(vehicle: number): [number,number,number];
 declare function IsVehicleHornActive(vehicle: number): boolean;
-//declare function SetSoundFadeIn(sound [, Duration, VolumeLevel, StartTime]): void;
+declare function SetSoundFadeIn(sound: number, Duration?: number, VolumeLevel?: number, StartTime?: number): void;
 declare function IsVehicleInAir(vehicle: number): boolean;
-//declare function GetVehicleWheelSteerAngle(vehicle, wheel): void;
-//declare function GetVehicleEngineState(vehicle: number): void;
+declare function GetVehicleWheelSteerAngle(vehicle: number, wheel: number): number;
 declare function IsVehicleSeatOccupied(vehicle: number, seat: number): boolean;
 declare function IsVehicleInWater(vehicle: number): boolean;
 declare function IsVehicleWheelInAir(vehicle: number, wheel: number): boolean;
@@ -166,17 +169,20 @@ declare function SetWebURL(web: number, URL: string): void;
 declare function SetWebLocation(web: number, x: number, y: number, z?: number): void;
 declare function SetWebSize(web: number, width: number, height: number): void;
 declare function SetWebAnchors(web: number, minX: number, minY: number, maxX: number, maxY: number): void;
-//declare function GetVehicleUpVector(vehicle: number): void;
+/** @tupleReturn */
+declare function GetVehicleUpVector(vehicle: number): [number,number,number];
 declare function SetWebAlignment(web: number, x: number, y: number): void;
 declare function GetWebUICount(): number;
 declare function SetIgnoreMoveInput(bIgnore: boolean): void;
 declare function CreateWebUI3D(x: number, y: number, z: number, rx: number, ry: number, rz: number, width: number, height: number, FrameRate?: number): number;
+declare function CreateRemoteWebUI3D(x: number, y: number, z: number, rx: number, ry: number, rz: number, width: number, height: number, FrameRate?: number): number;
 declare function SetIgnoreLookInput(bIgnore: boolean): void;
 /** @tupleReturn */
 declare function GetPlayerCameraForwardVector(): [number, number, number];
 declare function IsShiftPressed(): boolean;
 declare function IsCtrlPressed(): boolean;
 declare function CreateWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
+declare function CreateRemoteWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
 declare function ReplaceObjectModelMesh(modelId: number, file: string): boolean;
 declare function DoesPakExist(name: string): boolean
 declare function LoadPak(name: string, rootPath: string, contentPath: string): boolean;

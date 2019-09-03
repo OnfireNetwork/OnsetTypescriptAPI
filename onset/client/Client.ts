@@ -34,10 +34,10 @@ namespace Client {
     export function getInputManager(): ClientInputManager {
         return new ClientInputManager();
     }
-    export function getWorldManager(): ClientWorldManager {
+    export function getWorld(): ClientWorldManager {
         return new ClientWorldManager();
     }
-    export function getGraphicsManager(): ClientGraphicsManager {
+    export function getGraphics(): ClientGraphicsManager {
         return new ClientGraphicsManager();
     }
 }

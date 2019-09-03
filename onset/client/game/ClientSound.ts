@@ -8,6 +8,12 @@ class Sound {
     public destroy() {
         DestroySound(this.id);
     }
+    public setFadeIn(duration?: number, volume?: number, startTime?: number): void {
+        SetSoundFadeIn(this.id, duration, volume, startTime);
+    }
+    public setFadeOut(duration: number, volume: number): void {
+        SetSoundFadeOut(this.id, duration, volume);
+    }
     public getPitch(): number {
         return GetSoundPitch(this.id);
     }

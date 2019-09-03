@@ -13,6 +13,12 @@ class ClientGraphicsManager {
     public create3DWebUI(x: number, y: number, z: number, rx: number, ry: number, rz: number, width: number, height: number, fps?: number): ClientWebUI {
         return this.getWebUI(CreateWebUI3D(x, y, z, rx, ry, rz, width, height, fps));
     }
+    public createOnlineWebUI(x: number, y: number, width: number, height: number, zOrder?: number, fps?: number): ClientWebUI {
+        return this.getWebUI(CreateRemoteWebUI(x, y, width, height, zOrder, fps));
+    }
+    public create3DOnlineWebUI(x: number, y: number, z: number, rx: number, ry: number, rz: number, width: number, height: number, fps?: number): ClientWebUI {
+        return this.getWebUI(CreateRemoteWebUI3D(x, y, z, rx, ry, rz, width, height, fps));
+    }
     public getTextBox(id: number): ClientTextBox {
         return new ClientTextBox(id);
     }
@@ -27,5 +33,14 @@ class ClientGraphicsManager {
     }
     public getCamera(): ClientCamera {
         return new ClientCamera();
+    }
+    public setHealthInfo(visible: boolean): void {
+        ShowHealthHUD(visible);
+    }
+    public setWeaponInfo(visible: boolean): void {
+        ShowWeaponHUD(visible);
+    }
+    public getDrawManager(): ClientDrawManager {
+        return new ClientDrawManager();
     }
 }

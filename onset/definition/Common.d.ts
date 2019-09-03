@@ -87,7 +87,6 @@ declare function GetVehicleGear(vehicleId: number): number;
 /** @tupleReturn */
 declare function GetVehicleRotation(vehicleId: number): [number, number, number];
 declare function GetVehicleLightState(vehicleId: number): boolean;
-declare function GetVehicleVelocity(vehicleId: number): number;
 declare function GetVehicleHealth(vehicleId: number): number;
 declare function GetVehicleTrunkRatio(vehicleId: number): number;
 

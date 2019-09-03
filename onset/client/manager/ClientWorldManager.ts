@@ -61,10 +61,27 @@ class ClientWorldManager {
     public setTime(time: number): void {
         SetTime(time);
     }
+    public getTime(): number {
+        return GetTime();
+    }
     public setWeather(weather: number): void {
         SetWeather(weather);
     }
     public setWaypoint(slot: number, name: string, location: Vector3d): void {
         SetWaypoint(slot, name, location.x, location.y, location.z);
+    }
+    public traceLine(start: Vector3d, end: Vector3d, complex?: boolean): LineTraceResult {
+        let tr = LineTrace(start.x, start.y, start.z, end.x, end.y, end.z, complex);
+        if(tr === false){
+            return new LineTraceResult();
+        }else{
+            return new LineTraceResult(new Vector3d(tr[0], tr[1], tr[2]), new Vector3d(tr[3], tr[4], tr[5]));
+        }
+    }
+    public getHeightAt(location: Vector2d, startHeight?: number): number {
+        if(startHeight === undefined){
+            startHeight = 100000;
+        }
+        return GetTerrainHeight(location.x, location.y, startHeight);
     }
 }
