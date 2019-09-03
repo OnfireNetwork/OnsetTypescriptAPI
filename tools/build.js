@@ -1,6 +1,25 @@
 const exec = require('child_process').exec;
 const fs = require('fs');
-
+const luamin = require('luamin');
+let minify = false;
+if(process.argv.length===3){
+    minify = process.argv[2]==='prod';
+}
+let blacklist = [];
+if(!minify){
+    blacklist.push([/--\[\[[A-Za-z0-9 :/.]*\]\]/gm,'']);
+    blacklist.push([/--[A-Za-z0-9 ]*[\n]/gm,'']);
+    blacklist.push([/^\s*$(?:\r\n?|\n)/gm,'']);
+}
+function minimize(code){
+    for(let item of blacklist){
+        code = code.replace(item[0], item[1]!==undefined?item[1]:'');
+    }
+    if(minify){
+        code = luamin.minify(code);
+    }
+    return code;
+}
 const build = (callback) => exec('npx tstl -p tsconfig.json',
     (error, stdout, stderr) => {
         console.log(stdout);
@@ -11,21 +30,18 @@ const build = (callback) => exec('npx tstl -p tsconfig.json',
         callback();
     }
 );
-
-function combineFiles(output, input) {
+function combineFiles(input) {
     let result = '';
     for(let fn of input){
-        result += fs.readFileSync(fn, 'utf8').replace('--[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]','') + "\n";
+        result += fs.readFileSync(fn, 'utf8') + "\n";
     }
-    fs.writeFileSync(output, result, 'utf8');
+    return result;
 }
-
 function deleteFiles(input) {
     for(let fn of input){
         fs.unlinkSync(fn);
     }
 }
-
 function deleteFile(file) {
     if(!fs.existsSync(file)){
         return;
@@ -39,7 +55,6 @@ function deleteFile(file) {
         fs.unlinkSync(file);
     }
 }
-
 function findLuaFiles(file, files = []){
     if(!fs.existsSync(file)){
         return files;
@@ -56,7 +71,7 @@ function findLuaFiles(file, files = []){
     return files;
 }
 
-function combineSubModule(moduleFolder, targetFile){
+function combineSubModule(moduleFolder){
     let isLib = true;
     let moduleFiles = findLuaFiles(moduleFolder).filter(value => {
         if(value === moduleFolder + '/init.lua'){
@@ -68,43 +83,44 @@ function combineSubModule(moduleFolder, targetFile){
     if(!isLib){
         moduleFiles.push(moduleFolder + '/init.lua');
     }
-    combineFiles(targetFile, moduleFiles);
+    let result = combineFiles(moduleFiles);
     deleteFiles(moduleFiles);
+    return result;
 }
 
-function combineSub(sourceFolder, targetFolder){
+function combineSub(sourceFolder){
+    let result = {};
     if(!fs.existsSync(sourceFolder)){
-        return;
-    }
-    if(!fs.existsSync(targetFolder)){
-        fs.mkdirSync(targetFolder);
+        return result;
     }
     if(fs.existsSync(sourceFolder + '/client')){
-        combineSubModule(sourceFolder + '/client', targetFolder + '/client.lua');
+        result['client'] = combineSubModule(sourceFolder + '/client');
     }
     if(fs.existsSync(sourceFolder + '/server')){
-        combineSubModule(sourceFolder + '/server', targetFolder + '/server.lua');
+        result['server'] = combineSubModule(sourceFolder + '/server');
     }
     if(fs.existsSync(sourceFolder + '/common')){
-        combineSubModule(sourceFolder + '/common', targetFolder + '/common.lua');
+        result['common'] = combineSubModule(sourceFolder + '/common');
     }
+    return result;
 }
 
-function combineBuild(buildFolder, subs, targetFolder){
-    if(!fs.existsSync(buildFolder)){
-        return;
-    }
+function combineBuild(subs, targetFolder){
     if(!fs.existsSync(targetFolder)){
         fs.mkdirSync(targetFolder);
     }
     let results = {client: '', server: '', common: ''};
     for(let sub of subs){
+        let subResult = combineSub(sub);
         for(let module of Object.keys(results)){
-            let fn = buildFolder + '/' + sub + '/' + module + '.lua';
-            if(fs.existsSync(fn)){
-                results[module] += fs.readFileSync(fn) + "\n";
+            if(subResult.hasOwnProperty(module)){
+                results[module] += subResult[module] + "\n";
             }
         }
+    }
+    //Minimize the code
+    for(let module of Object.keys(results)){
+        results[module] = minimize(results[module]);
     }
     if(!fs.existsSync(targetFolder + '/client')){
         fs.mkdirSync(targetFolder + '/client');
@@ -117,12 +133,12 @@ function combineBuild(buildFolder, subs, targetFolder){
 }
 
 build(() => {
-    deleteFile('build');
-    fs.mkdirSync('build');
-    let subs = ['api', 'lib', 'src'];
-    for(let sub of subs){
-        combineSub(sub, 'build/'+sub);
+    let subs = ['api'];
+    if(fs.existsSync('lib')){
+        for(let fn of fs.readdirSync('lib')){
+            subs.push('lib/'+fn);
+        }
     }
-    combineBuild('build', subs, 'target');
-    deleteFile('build');
+    subs.push('src');
+    combineBuild(subs, 'target');
 });

@@ -9,8 +9,9 @@
   "author": "onfirenetwork",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^12.7.2",
+    "luamin": "^1.0.4",
     "typescript": "^3.5.3",
-    "typescript-to-lua": "^0.26.0",
-    "@types/node": "^12.7.2"
+    "typescript-to-lua": "^0.26.0"
   }
 }
