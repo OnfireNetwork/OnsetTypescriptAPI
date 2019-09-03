@@ -92,7 +92,7 @@ declare function SetInputMode(mode: string): void;
 /** @tupleReturn */
 declare function GetLightLocation(light: number): [number, number, number];
 declare function SetNPCOutline(npc: number, bEnable?: boolean): void;
-//declare function SetWeather(weather): void;
+declare function SetWeather(weather: number): void;
 declare function GetTime(): number;
 //declare function GetObjectBoundingBox(object: number): void;
 declare function GetObjectSize(object: number): number;

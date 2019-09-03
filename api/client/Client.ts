@@ -34,12 +34,6 @@ namespace Client {
     export function getInputManager(): ClientInputManager {
         return new ClientInputManager();
     }
-    export function getWebUIManager(): ClientWebUIManager {
-        return new ClientWebUIManager();
-    }
-    export function getTextBoxManager(): ClientTextBoxManager {
-        return new ClientTextBoxManager();
-    }
     export function getWorldManager(): ClientWorldManager {
         return new ClientWorldManager();
     }

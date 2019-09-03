@@ -58,4 +58,10 @@ class ClientWorldManager {
     public createCollisionSphere(position: Vector3d, radius: number, visible?: boolean): ClientCollisionArea {
         return this.getCollisionArea(CreateCollisionSphere(position.x, position.y, position.z, radius, visible));
     }
+    public setTime(time: number): void {
+        SetTime(time);
+    }
+    public setWeather(weather: number): void {
+        SetWeather(weather);
+    }
 }
