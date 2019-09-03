@@ -64,4 +64,7 @@ class ClientWorldManager {
     public setWeather(weather: number): void {
         SetWeather(weather);
     }
+    public setWaypoint(slot: number, name: string, location: Vector3d): void {
+        SetWaypoint(slot, name, location.x, location.y, location.z);
+    }
 }

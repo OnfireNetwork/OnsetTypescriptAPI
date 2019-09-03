@@ -25,4 +25,7 @@ class ClientGraphicsManager {
     public getScreenSize(): Vector2d {
         return Vector2d.fromTuple(GetScreenSize());
     }
+    public getCamera(): ClientCamera {
+        return new ClientCamera();
+    }
 }

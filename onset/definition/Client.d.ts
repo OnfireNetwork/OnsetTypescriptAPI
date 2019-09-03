@@ -29,7 +29,8 @@ declare function SetMoonShine(shine: number): void;
 declare function GetPlayerRotationRate(): number;
 /** @tupleReturn */
 declare function GetMouseLocation(): [number, number];
-//declare function GetPlayerCameraUpVector(): number;
+/** @tupleReturn */
+declare function GetPlayerCameraUpVector(): [number, number, number];
 declare function SetTextBoxText(textid: number, text: string): void;
 declare function CreateTextBox(x: number, y: number, text: string, justification: string): number;
 declare function SetStarsBrightness(brightness: number): void;
@@ -66,17 +67,19 @@ declare function SetPlayerRotationRate(RotationRate: number): void;
 declare function GetPlayerCameraLocation(): [number, number, number];
 declare function GetAllCollisions(): number[];
 declare function GetTerrainHeight(sX: number, sY: number, sZ: number): number;
-//declare function GetPlayerCameraRightVector(): void;
+/** @tupleReturn */
+declare function GetPlayerCameraRightVector(): [number, number, number];
 declare function SetObjectOutline(object: number, bEnable?: boolean): void;
 declare function SetDrawColor(HexColor: number): void;
 declare function DrawLine3D(sX: number, sY: number, sZ: number, eX: number, eY: number, eZ: number, r?: number, g?: number, b?: number): void;
 declare function SetChatLocation(x: number, y: number): void;
 declare function SetObjectEditable(object: number, editMode: boolean): void;
-//declare function SetCameraShakeRotation(PitchAmp, PitchFreq, YawAmp, YawFreq, RollAmp, RollFreq): void;
+declare function SetCameraShakeRotation(PitchAmp: number, PitchFreq: number, YawAmp: number, YawFreq: number, RollAmp: number, RollFreq: number): void;
 declare function DrawSolidBox3D(x: number, y: number, z: number, eX: number, eY: number, eZ: number, HexColor: number): number;
 declare function SetSkyLightIntensity(intensity: number): void;
 declare function GetTextSize(text: string, scale?: number): number;
-//declare function GetPlayerCameraRotation(): void;
+/** @tupleReturn */
+declare function GetPlayerCameraRotation(): [number, number, number];
 declare function GetStreamedLights(): number[];
 declare function DrawText(x: number, y: number, text: string): number;
 declare function SetTime(time: number): void;
@@ -169,7 +172,8 @@ declare function GetWebUICount(): number;
 declare function SetIgnoreMoveInput(bIgnore: boolean): void;
 declare function CreateWebUI3D(x: number, y: number, z: number, rx: number, ry: number, rz: number, width: number, height: number, FrameRate?: number): number;
 declare function SetIgnoreLookInput(bIgnore: boolean): void;
-//declare function GetPlayerCameraForwardVector(): void;
+/** @tupleReturn */
+declare function GetPlayerCameraForwardVector(): [number, number, number];
 declare function IsShiftPressed(): boolean;
 declare function IsCtrlPressed(): boolean;
 declare function CreateWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
