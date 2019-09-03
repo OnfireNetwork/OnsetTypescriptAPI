@@ -12,3 +12,7 @@ Running the following commands will build your gamemode into the target director
 npm install
 npm run build
 ```
+This will do some minification but its still readable code. To build a minified file you can build in production mode
+```
+npm run build prod
+```
