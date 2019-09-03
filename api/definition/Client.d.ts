@@ -11,7 +11,8 @@ declare function ShowWeaponHUD(show: boolean): void;
 declare function DrawCircle3D(x: number, y: number, z: number, radius?: number, r?: number, g?: number, b?: number): number;
 declare function DrawRect(sX: number, sY: number, sW: number, sH: number, r?: number, g?: number, b?: number): number;
 declare function GetPlayerBoneNames(): string;
-declare function GetScreenSize(): number;
+/** @tupleReturn */
+declare function GetScreenSize(): [number, number];
 declare function PlayCameraShake(duration: number, blendInTime?: number, blendOutTime?: number, scale?: number): void;
 declare function SetWaypoint(slot: number, name: string, x: number, y: number, z: number): number;
 /** @tupleReturn */
@@ -37,7 +38,7 @@ declare function SetStarsBrightness(brightness: number): void;
 declare function IsChatFocus(): boolean;
 declare function SetSunAzimuth(azimuth: number): void;
 declare function CreateSound(SoundFile: string, bLoop?: boolean): number;
-declare function SetOceanColor(HexColor: string): void;
+declare function SetOceanColor(HexColor: number): void;
 declare function GetMouseInputDelta(): number;
 declare function IsPlayerInVehicle(player?: number): boolean;
 declare function SetDrawScale(sx: number, sy: number): void;
@@ -72,7 +73,7 @@ declare function DrawLine3D(sX: number, sY: number, sZ: number, eX: number, eY: 
 declare function SetChatLocation(x: number, y: number): void;
 declare function SetObjectEditable(object: number, editMode: boolean): void;
 //declare function SetCameraShakeRotation(PitchAmp, PitchFreq, YawAmp, YawFreq, RollAmp, RollFreq): void;
-declare function DrawSolidBox3D(x: number, y: number, z: number, eX: number, eY: number, eZ: number, HexColor: string): number;
+declare function DrawSolidBox3D(x: number, y: number, z: number, eX: number, eY: number, eZ: number, HexColor: number): number;
 declare function SetSkyLightIntensity(intensity: number): void;
 declare function GetTextSize(text: string, scale?: number): number;
 //declare function GetPlayerCameraRotation(): void;
@@ -106,7 +107,7 @@ declare function GetStreamedPlayers(): number[];
 //declare function GetPlayerHeading(player: number): void;
 declare function GetStreamedPickups(): number[];
 declare function StopCameraShake(bImmediate?: boolean): void;
-declare function StartCameraFade(fromAlpha: number, toAlpha: number, duration: number, hexColor?: string): void;
+declare function StartCameraFade(fromAlpha: number, toAlpha: number, duration: number, hexColor?: number): void;
 declare function SetSkySaturation(saturation: number): void;
 declare function GetMouseHitEntity(): number;
 declare function GetPlayerFOV(): number;

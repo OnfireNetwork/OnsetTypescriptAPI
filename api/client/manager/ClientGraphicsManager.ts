@@ -19,4 +19,10 @@ class ClientGraphicsManager {
     public createTextBox(position: Vector2d, text: string, justification: string): ClientTextBox {
         return this.getTextBox(CreateTextBox(position.x, position.y, text, justification));
     }
+    public getSettings(): GraphicsSettings {
+        return new GraphicsSettings();
+    }
+    public getScreenSize(): Vector2d {
+        return Vector2d.fromTuple(GetScreenSize());
+    }
 }
