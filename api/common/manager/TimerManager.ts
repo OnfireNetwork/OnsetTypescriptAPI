@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class ClientTimerManager {
+class TimerManager {
     public delay(millis: number, task: Function): void {
         Delay(millis, task);
     }

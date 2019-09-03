@@ -2,6 +2,9 @@
 
 class ClientWebUI {
     constructor(private id: number) { }
+    public getId(): number {
+        return this.id;
+    }
     public destroy() {
         DestroyWebUI(this.id);
     }
@@ -13,6 +16,9 @@ class ClientWebUI {
     }
     public setSize(width: number, height: number) {
         SetWebSize(this.id, width, height);
+    }
+    public setRotation(rotation: Vector3d): void {
+        SetWebRotation(this.id, rotation.x, rotation.y, rotation.z);
     }
     public isVisible(): boolean {
         return GetWebVisibility(this.id);
@@ -26,10 +32,17 @@ class ClientWebUI {
     public execJS(source: string) {
         ExecuteWebJS(this.id, source);
     }
-    public setLocation(position: Vector2d, z?: number): void {
-        SetWebLocation(this.id, position.x, position.y, z);
+    public setLocation(position: Vector2d|Vector3d): void {
+        if(position instanceof Vector3d){
+            SetWebLocation(this.id, position.x, position.y, position.z);
+        }else{
+            SetWebLocation(this.id, position.x, position.y);
+        }
     }
     public setAlignment(alignment: Vector2d) {
         SetWebAlignment(this.id, alignment.x, alignment.y);
+    }
+    public setAnchors(min: Vector2d, max: Vector2d): void {
+        SetWebAnchors(this.id, min.x, min.y, max.x, max.y);
     }
 }

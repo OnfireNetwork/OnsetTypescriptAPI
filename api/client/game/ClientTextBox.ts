@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class TextBox {
+class ClientTextBox {
     constructor(private id: number){}
     public getId(): number {
         return this.id;

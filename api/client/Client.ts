@@ -10,12 +10,6 @@ namespace Client {
     export function getGameVersion(): number {
         return GetGameVersion();
     }
-    export function getTextBox(id: number): TextBox {
-        return new TextBox(id);
-    }
-    export function createTextBox(position: Vector2d, text: string, justification: string): TextBox {
-        return Client.getTextBox(CreateTextBox(position.x, position.y, text, justification));
-    }
     export function listen(event: string, handler: Function): void {
         AddEvent(event, handler);
     }
@@ -25,21 +19,14 @@ namespace Client {
     export function printChat(message: string): void {
         AddPlayerChat(message);
     }
-    export function getPlayer(id?: number): ClientPlayer {
-        if (id !== undefined) {
-            return new ClientPlayer(id);
-        } else {
-            return new ClientPlayer(GetPlayerId());
-        }
-    }
     export function connect(address: string, port: number, password?: string): void {
         ConnectToServer(address, port, password);
     }
     export function getPing(): number {
         return GetPing();
     }
-    export function getTimerManager(): ClientTimerManager {
-        return new ClientTimerManager();
+    export function getTimerManager(): TimerManager {
+        return new TimerManager();
     }
     export function getSoundManager(): ClientSoundManager {
         return new ClientSoundManager();
@@ -50,7 +37,13 @@ namespace Client {
     export function getWebUIManager(): ClientWebUIManager {
         return new ClientWebUIManager();
     }
-    export function getNPCManager(): ClientNPCManager {
-        return new ClientNPCManager();
+    export function getTextBoxManager(): ClientTextBoxManager {
+        return new ClientTextBoxManager();
+    }
+    export function getWorldManager(): ClientWorldManager {
+        return new ClientWorldManager();
+    }
+    export function getGraphicsManager(): ClientGraphicsManager {
+        return new ClientGraphicsManager();
     }
 }

@@ -57,7 +57,7 @@ declare function SetFogDensity(density: number): void;
 declare function EnableObjectHitEvents(objectId: number, enable?: boolean): void;
 declare function GetSoundCount(): number;
 declare function DestroyTextBox(textid: number): void;
-//declare function GetInputAxisValue(AxisName: string): void;
+declare function GetInputAxisValue(axisName: string): number;
 declare function AddPlayerChat(message: string): void;
 declare function DestroySound(sound: number): void;
 declare function SetPlayerRotationRate(RotationRate: number): void;
@@ -88,7 +88,7 @@ declare function SetSunShine(shine: number): void;
 declare function GetPing(): number;
 //declare function GetNetworkStats(): void;
 declare function GetStreamedNPC(): number[];
-//declare function SetInputMode(InputMode): void;
+declare function SetInputMode(mode: string): void;
 /** @tupleReturn */
 declare function GetLightLocation(light: number): [number, number, number];
 declare function SetNPCOutline(npc: number, bEnable?: boolean): void;

@@ -26,4 +26,10 @@ class ClientInputManager {
     public setIgnoreLookInput(ignore: boolean): void {
         SetIgnoreLookInput(ignore);
     }
+    public setMode(mode: string): void {
+        SetInputMode(mode);
+    }
+    public getAxisValue(axis: string): number {
+        return GetInputAxisValue(axis);
+    }
 }

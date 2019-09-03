@@ -2,6 +2,9 @@
 
 class Sound {
     constructor(private id: number) { }
+    public getId(): number {
+        return this.id;
+    }
     public destroy() {
         DestroySound(this.id);
     }

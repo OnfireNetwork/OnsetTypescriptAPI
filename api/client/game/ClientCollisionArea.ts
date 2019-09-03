@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class Collision {
+class ClientCollisionArea {
     constructor(private id: number) { }
     public destroy() {
         DestroyCollision(this.id);
