@@ -1,17 +1,22 @@
 {
-  "name": "@onfireserver/onset-typescript-api",
-  "version": "1.0.6",
-  "description": "",
-  "scripts": {
-    "build": "node tools/build.js"
+  "name": "@onfire-network/onset-typescript-api",
+  "version": "1.0.0",
+  "description": "This project wraps the lua scripting api in a object oriented typescript api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnfireNetwork/OnsetTypescriptAPI.git"
   },
-  "keywords": [],
-  "author": "onfirenetwork",
+  "keywords": [
+    "onset",
+    "typescript"
+  ],
+  "author": "Onfire Network",
   "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^12.7.2",
-    "luamin": "^1.0.4",
-    "typescript": "^3.5.3",
-    "typescript-to-lua": "^0.26.0"
+  "bugs": {
+    "url": "https://github.com/OnfireNetwork/OnsetTypescriptAPI/issues"
+  },
+  "homepage": "https://github.com/OnfireNetwork/OnsetTypescriptAPI#readme",
+  "dependencies": {
+    "typescript": "^3.5.3"
   }
 }
