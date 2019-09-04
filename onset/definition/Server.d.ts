@@ -24,6 +24,7 @@ declare function IsNPCStreamedIn(playerId: number, npcId: number): boolean;
 declare function GetNPCModel(npcId: number): number;
 declare function SetNPCLocation(npcId: number, x: number, y: number, z: number): void;
 declare function GetNPCHealth(npcId: number): number;
+declare function SetNPCHealth(npcId: number, health: number): void;
 declare function SetNPCAnimation(npcId: number, animationName: string, loop: boolean): boolean;
 declare function SetNPCHeading(npcId: number, heading: number): void;
 declare function GetNPCHeading(npcId: number): number;

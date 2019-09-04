@@ -11,6 +11,9 @@ class NPC {
     public getHealth(): number {
         return GetNPCHealth(this.id);
     }
+    public setHealth(health: number): void {
+        SetNPCHealth(this.id, health);
+    }
     public setLocation(location: Vector3d): void {
         SetNPCLocation(this.id, location.x, location.y, location.z);
     }
