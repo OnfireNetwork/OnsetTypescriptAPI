@@ -100,7 +100,8 @@ declare function GetLightLocation(light: number): [number, number, number];
 declare function SetNPCOutline(npc: number, bEnable?: boolean): void;
 declare function SetWeather(weather: number): void;
 declare function GetTime(): number;
-//declare function GetObjectBoundingBox(object: number): void;
+/** @tupleReturn */
+declare function GetObjectBoundingBox(object: number): [number,number,number,number,number,number];
 declare function GetObjectSize(object: number): number;
 /** @tupleReturn */
 declare function GetPickupLocation(pickupid: number): [number, number, number];
@@ -155,7 +156,8 @@ declare function IsVehicleWheelInAir(vehicle: number, wheel: number): boolean;
 declare function GetVehicleEngineRPM(vehicle: number): number;
 declare function GetVehicleForwardSpeed(vehicle: number): number;
 declare function GetWebVisibility(web: number): boolean;
-//declare function GetVehicleBoundingBox(vehicle): void;
+/** @tupleReturn */
+declare function GetVehicleBoundingBox(vehicle: number): [number,number,number,number,number,number];
 declare function LoadWebFile(web: number, file: string): void;
 declare function GetAllWebUI(): number[];
 declare function DestroyWebUI(web: number): void;

@@ -4,7 +4,6 @@ class ClientVehicle {
     /*
     Not implemented due to unclear docs:
     GetVehicleWheelSurface
-    GetVehicleBoundingBox
     */
     constructor(private id: number){}
     public getId(): number {
@@ -33,6 +32,10 @@ class ClientVehicle {
     }
     public getVelocity(): Vector3d {
         return Vector3d.fromTuple(GetVehicleVelocity(this.id));
+    }
+    public getBoundingBox(): BoundingBox {
+        let raw = GetVehicleBoundingBox(this.id);
+        return new BoundingBox(new Vector3d(raw[0], raw[1], raw[2]), new Vector3d(raw[3], raw[4], raw[5]));
     }
     public getDoorLocation(door: number): boolean {
         return GetVehicleDoorLocation(this.id, door);

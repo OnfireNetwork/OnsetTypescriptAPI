@@ -4,7 +4,6 @@ class ClientWorldObject {
     /*
     Unimplemented due to bad docs:
     GetObjectSize
-    GetObjectBoundingBox
     GetObjectModelCount
     GetObjectModelGroup
     */
@@ -23,6 +22,10 @@ class ClientWorldObject {
     }
     public getScale(): Vector3d {
         return Vector3d.fromTuple(GetObjectScale(this.id));
+    }
+    public getBoundingBox(): BoundingBox {
+        let raw = GetObjectBoundingBox(this.id);
+        return new BoundingBox(new Vector3d(raw[0], raw[1], raw[2]), new Vector3d(raw[3], raw[4], raw[5]));
     }
     public setHitEventsEnabled(enabled?: boolean): void {
         EnableObjectHitEvents(this.id, enabled);
