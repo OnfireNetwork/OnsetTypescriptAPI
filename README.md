@@ -26,3 +26,6 @@ These scripts are already kind of optimized, but not minified. If you wish to mi
 ```
 npx otb prod
 ```
+
+## Other Libraries to use with OnsetTypescriptAPI
+- MariaDB ([OnfireNetwork/OnsetTypescriptMariaDB](https://github.com/OnfireNetwork/OnsetTypescriptMariaDB))
