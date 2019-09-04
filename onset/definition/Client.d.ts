@@ -191,3 +191,4 @@ declare function LoadPak(name: string, rootPath: string, contentPath: string): b
 declare function ConnectToServer(address: string, port: number, password?: string): void;
 declare function AddRemoteEvent(remoteEventName: string, handler: Function): void;
 declare function CallRemoteEvent(eventName: string, ...args: any[]): boolean;
+declare function SetOceanWaterLevel(level: number, includeSwimmingLevel?: boolean): void

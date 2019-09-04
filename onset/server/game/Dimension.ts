@@ -53,6 +53,26 @@ class Dimension {
         return npc;
     }
 
+    public getPlayers(): Player[] {
+        return Server.getWorld().getPlayers().filter(this.dimensionFilter);
+    }
+
+    public getNPCs(): NPC[] {
+        return Server.getWorld().getNPCs().filter(this.dimensionFilter);
+    }
+
+    public getPickups(): Pickup[] {
+        return Server.getWorld().getPickups().filter(this.dimensionFilter);
+    }
+
+    public getText3Ds(): Text3D[] {
+        return Server.getWorld().get3DTexts().filter(this.dimensionFilter);
+    }
+
+    public getLights(): Light[] {
+        return Server.getWorld().getLights().filter(this.dimensionFilter);
+    }
+
     public getId(): number {
         return this.id;
     }

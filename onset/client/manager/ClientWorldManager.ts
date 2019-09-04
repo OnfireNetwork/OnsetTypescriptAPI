@@ -101,4 +101,7 @@ class ClientWorldManager {
         }
         return GetTerrainHeight(location.x, location.y, startHeight);
     }
+    public setWaterLevel(level: number, includeSwimmingLevel?: boolean): void {
+        SetOceanWaterLevel(level, includeSwimmingLevel);
+    }
 }
