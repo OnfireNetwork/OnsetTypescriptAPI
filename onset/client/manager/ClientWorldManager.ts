@@ -14,7 +14,24 @@ class ClientWorldManager {
         return new ClientPickup(id);
     }
     public getPlayers(): ClientPlayer[] {
+        let players = this.getRemotePlayers();
+        players.push(this.getLocalPlayer());
+        return players;
+    }
+    public getPlayersInBox(location: Vector3d, size: Vector3d): ClientPlayer[] {
+        return GetAllPlayersInBox(location.x, location.y, location.z, size.x, size.y, size.z, true).map(id => this.getPlayer(id));
+    }
+    public getPlayersInSphere(location: Vector3d, radius: number): ClientPlayer[] {
+        return GetAllPlayersInSphere(location.x, location.y, location.z, radius, true).map(id => this.getPlayer(id));
+    }
+    public getRemotePlayers(): ClientPlayer[] {
         return GetStreamedPlayers().map(id => this.getPlayer(id));
+    }
+    public getRemotePlayersInBox(location: Vector3d, size: Vector3d): ClientPlayer[] {
+        return GetAllPlayersInBox(location.x, location.y, location.z, size.x, size.y, size.z, false).map(id => this.getPlayer(id));
+    }
+    public getRemotePlayersInSphere(location: Vector3d, radius: number): ClientPlayer[] {
+        return GetAllPlayersInSphere(location.x, location.y, location.z, radius, false).map(id => this.getPlayer(id));
     }
     public getPlayer(id: number): ClientPlayer {
         return new ClientPlayer(id);

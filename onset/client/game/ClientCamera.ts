@@ -41,4 +41,19 @@ class ClientCamera {
     public getUpVector(): Vector3d {
         return Vector3d.fromTuple(GetPlayerCameraUpVector());
     }
+    public getDistance(): number {
+        return GetPlayerCameraViewDistance();
+    }
+    public setDistance(distance: number): void {
+        SetPlayerCameraViewDistance(distance);
+    }
+    public getHitLocation(): Vector3d {
+        return Vector3d.fromTuple(GetMouseHitLocation());
+    }
+    public getHitEntity(): number {
+        return GetMouseHitEntity();
+    }
+    public playDamageFX(value: number): void {
+        InvokeDamageFX(value);
+    }
 }

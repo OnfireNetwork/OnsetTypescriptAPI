@@ -1,3 +1,4 @@
+/** @noSelfInFile */
 
 class LineTraceResult {
     constructor(private hitLocation?: Vector3d, private planeNormal?: Vector3d){}

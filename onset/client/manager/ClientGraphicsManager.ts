@@ -43,4 +43,27 @@ class ClientGraphicsManager {
     public getDrawManager(): ClientDrawManager {
         return new ClientDrawManager();
     }
+    public worldToScreen(location: Vector3d): Vector2d|undefined {
+        let res = WorldToScreen(location.x, location.y, location.z);
+        if(!res[0]){
+            return undefined;
+        }
+        return new Vector2d(res[1], res[2]);
+    }
+    public screenToWorld(position: Vector2d): [Vector3d, Vector3d]|undefined {
+        let res = ScreenToWorld(position.x, position.y);
+        if(!res[0]){
+            return undefined;
+        }
+        return [new Vector3d(res[1], res[2], res[3]), new Vector3d(res[4], res[5], res[6])];
+    }
+    public setChatVisible(visible: boolean): void {
+        ShowChat(visible);
+    }
+    public setChatPosition(position: Vector2d): void {
+        SetChatLocation(position.x, position.y);
+    }
+    public getChatPosition(): Vector2d {
+        return Vector2d.fromTuple(GetChatLocation());
+    }
 }

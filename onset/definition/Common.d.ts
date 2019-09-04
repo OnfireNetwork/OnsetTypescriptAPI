@@ -12,11 +12,8 @@ declare function PauseTimer(timerId: number): void;
 declare function UnpauseTimer(timerId: number): void;
 declare function GetTimerRemainingTime(timerId: number): number;
 
-// Events
 declare function AddEvent(eventName: string, handler: Function): void;
 declare function CallEvent(eventName: string, ...args: any[]): void;
-declare function AddRemoteEvent(remoteEventName: string, handler: Function): void;
-declare function CallRemoteEvent(playerId: number, eventName: string, ...args: any[]): boolean;
 
 // Package
 declare function GetPackageName(): string;

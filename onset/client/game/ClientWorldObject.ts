@@ -1,6 +1,13 @@
 /** @noSelfInFile */
 
 class ClientWorldObject {
+    /*
+    Unimplemented due to bad docs:
+    GetObjectSize
+    GetObjectBoundingBox
+    GetObjectModelCount
+    GetObjectModelGroup
+    */
     constructor(private id: number){}
     public getId(): number {
         return this.id;

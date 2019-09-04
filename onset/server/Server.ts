@@ -1,4 +1,5 @@
 /** @noSelfInFile */
+
 namespace Server {
     export function getTimeSeconds(): number {
         return GetTimeSeconds();
@@ -33,7 +34,7 @@ namespace Server {
     export function getTimerManager(): TimerManager {
         return new TimerManager();
     }
-    export function getWorldManager(): WorldManager {
+    export function getWorld(): WorldManager {
         return new WorldManager();
     }
     export function broadcast(message: string): void {
@@ -48,7 +49,25 @@ namespace Server {
     export function listenRemote(event: string, handler: Function): void {
         AddRemoteEvent(event, handler);
     }
+    export function call(event: string, ...args: any[]): void {
+        CallEvent(event, args);
+    }
+    export function callRemote(player: Player, event: string, ...args: any[]): void {
+        CallRemoteEvent(player.getId(), event, args);
+    }
     export function exit(): void {
         ServerExit();
+    }
+    export function exportFunction(name: string, exportFunction: Function): void {
+        AddFunctionExport(name, exportFunction);
+    }
+    export function importPackage<T>(name: string): T {
+        return ImportPackage(name);
+    }
+    export function getPackageName(): string {
+        return GetPackageName();
+    }
+    export function getHelper(): ServerHelper {
+        return new ServerHelper();
     }
 }

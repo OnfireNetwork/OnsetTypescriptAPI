@@ -1,6 +1,10 @@
 /** @noSelfInFile */
 
 class ClientInputManager {
+    /*
+    Unimplemented due to missing docs:
+    DeprojectMouseLocationToWorld
+    */
     public setCursorEnabled(enabled: boolean): void {
         ShowMouseCursor(enabled);
     }
@@ -31,5 +35,14 @@ class ClientInputManager {
     }
     public getAxisValue(axis: string): number {
         return GetInputAxisValue(axis);
+    }
+    public isChatFocus(): boolean {
+        return IsChatFocus();
+    }
+    public setRotationSpeed(speed: number): void {
+        SetPlayerRotationRate(speed);
+    }
+    public getRotationSpeed(): number {
+        return GetPlayerRotationRate();
     }
 }

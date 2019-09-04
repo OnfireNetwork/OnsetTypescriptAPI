@@ -52,6 +52,8 @@ declare function SetObjectAnimatedTexture(objectId: number, textureFile: string,
 // Package / Event Stuff
 declare function AddCommand(commandName: string, handler: Function): void;
 declare function GetAllPackages(): string[];
+declare function AddRemoteEvent(remoteEventName: string, handler: Function): void;
+declare function CallRemoteEvent(playerId: number, eventName: string, ...args: any[]): boolean;
 // Pickups
 declare function GetAllPickups(): number[];
 declare function CreatePickup(modelId: number, x: number, y: number, z: number): number;

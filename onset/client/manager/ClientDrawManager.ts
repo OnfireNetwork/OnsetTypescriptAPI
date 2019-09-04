@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 class ClientDrawManager {
     /*
     Missing Functions because of unclear docs:
