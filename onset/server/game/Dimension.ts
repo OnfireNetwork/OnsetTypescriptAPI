@@ -28,27 +28,27 @@ class Dimension {
     private dimensionFilter = (obj: DimensionCompatible) => obj.getDimension() == this.id;
 
     public createLight(lightType: number, intensity: number, location: Vector3d, rotation?: Vector3d): Light {
-        let light = Server.getWorldManager().createLight(lightType, intensity, location, rotation);
+        let light = Server.getWorld().createLight(lightType, intensity, location, rotation);
         this.setDimension(light);
         return light;
     }
     public createPickup(modelId: number, location: Vector3d): Pickup {
-        let pickup = Server.getWorldManager().createPickup(modelId, location);
+        let pickup = Server.getWorld().createPickup(modelId, location);
         this.setDimension(pickup);
         return pickup;
     }
     public create3DText(text: string, size: number, location: Vector3d, rotation: Vector3d): Text3D {
-        let text3D = Server.getWorldManager().create3DText(text, size, location, rotation);
+        let text3D = Server.getWorld().create3DText(text, size, location, rotation);
         this.setDimension(text3D);
         return text3D;
     }
     public createVehicle(modelId: number, location: Vector3d, heading?: number): Vehicle {
-        let vehicle = Server.getWorldManager().createVehicle(modelId, location, heading);
+        let vehicle = Server.getWorld().createVehicle(modelId, location, heading);
         this.setDimension(vehicle);
         return vehicle;
     }
     public createNPC(modelId: number, location: Vector3d, heading: number): NPC {
-        let npc = Server.getWorldManager().createNPC(modelId, location, heading);
+        let npc = Server.getWorld().createNPC(modelId, location, heading);
         this.setDimension(npc);
         return npc;
     }
