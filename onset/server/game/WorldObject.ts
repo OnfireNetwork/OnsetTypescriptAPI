@@ -64,6 +64,9 @@ class WorldObject implements ISticky {
     public isAttached(): boolean {
         return IsObjectAttached(this.id);
     }
+    public getAttachmentInfo(): [string, number] {
+        return GetObjectAttachmentInfo(this.id);
+    }
     public setDimension(dimensionId: number): void {
         SetObjectDimension(this.id, dimensionId);
     }

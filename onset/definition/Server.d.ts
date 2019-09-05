@@ -42,7 +42,8 @@ declare function SetObjectScale(objectId: number, sx: number, sy: number, sz: nu
 declare function SetObjectAttached(objectId: number, attachType: number, attachId: number, x: number, y: number, z: number, rx?: number, ry?: number, rz?: number, socketName?: string): void;
 declare function SetObjectDetached(objectId: number): void;
 declare function IsObjectAttached(objectId: number): boolean;
-//declare function GetObjectAttachmentInfo(objectId: number): unknown; -> Unknown return type
+/** @tupleReturn */
+declare function GetObjectAttachmentInfo(objectId: number): [string,number];
 declare function IsObjectMoving(objectId: number): boolean;
 declare function SetObjectMoveTo(objectId: number, x: number, y: number, z: number, speed: number): void;
 declare function StopObjectMove(objectId: number): void;
@@ -79,17 +80,16 @@ declare function IsPlayerVoiceEnabled(playerId: number): boolean;
 declare function AddPlayerChat(playerId: number, message: string): void;
 declare function AddPlayerChatRange(x: number, y: number, range: number, message: string): void;
 declare function AddPlayerChatAll(message: string): void;
-//declare function GetPlayerState(playerId: number): unknown; -> Unknown return type
+declare function GetPlayerState(playerId: number): number;
 declare function GetPlayerVehicleSeat(playerId: number): number;
 declare function SetPlayerInVehicle(playerId: number, vehicleId: number, seat?: number): void;
 declare function RemovePlayerFromVehicle(playerId: number): void;
 declare function SetPlayerLocation(playerId: number, x: number, y: number, z: number): void;
 declare function SetPlayerWeaponStat(playerId: number, weaponId: number, stat: string, value: number): void; //Unclear
-//declare function AddPlayerWeapon(playerId: number, weaponId: number): void; -> Not documented
+declare function SetPlayerWeapon(playerId: number, weaponId: number, ammo: number, equip: boolean, slot: number): boolean;
 declare function GetPlayerEquippedWeaponSlot(playerId: number): number;
 declare function EquipPlayerWeaponSlot(playerId: number, weaponSlot: number): void;
 declare function GetPlayerEquippedWeapon(playerId: number): number; //Unclear
-//declare function ResetPlayerWeapon(playerId: number): void; -> Not documented
 declare function CancelPlayerWeaponShot(): void; //Unclear
 declare function CancelChatCommand(): void; //Unclear
 declare function SetPlayerHeading(playerId: number, heading: number): void;

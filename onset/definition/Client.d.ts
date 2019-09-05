@@ -34,7 +34,6 @@ declare function GetPlayerCameraUpVector(): [number, number, number];
 declare function SetTextBoxText(textid: number, text: string): void;
 declare function CreateTextBox(x: number, y: number, text: string, justification: string): number;
 declare function SetStarsBrightness(brightness: number): void;
-//declare function DrawTexture(): void;
 declare function WorldToScreen(x: number, y: number, z: number): [boolean, number, number];
 declare function IsChatFocus(): boolean;
 declare function SetSunAzimuth(azimuth: number): void;
@@ -87,7 +86,7 @@ declare function DrawText(x: number, y: number, text: string): number;
 declare function SetTime(time: number): void;
 declare function IsMouseCursorEnabled(): boolean;
 declare function SetMoonRadius(radius: number): void;
-//declare function DeprojectMouseLocationToWorld(): void;
+declare function DeprojectMouseLocationToWorld(): [number,number,number,number,number,number]|false;
 declare function SetMoonLightIntensity(intensity: number): void;
 declare function SetSunLightIntensity(intensity: number): void;
 declare function SetSunShine(shine: number): void;
@@ -102,15 +101,17 @@ declare function SetWeather(weather: number): void;
 declare function GetTime(): number;
 /** @tupleReturn */
 declare function GetObjectBoundingBox(object: number): [number,number,number,number,number,number];
-declare function GetObjectSize(object: number): number;
+/** @tupleReturn */
+declare function GetObjectSize(object: number): [number,number,number];
 /** @tupleReturn */
 declare function GetPickupLocation(pickupid: number): [number, number, number];
 declare function GetAllPlayersInSphere(x: number, y: number, z: number, radius: number, bIncludeSelf?: boolean): number[];
 declare function GetStreamedObjects(bGetAttached?: boolean): number[];
-//declare function GetObjectModelGroup(model): void;
-//declare function GetObjectRotation(object): void;
+declare function GetObjectModelGroup(model: number): string;
+/** @tupleReturn */
+declare function GetObjectRotation(object: number): [number,number,number];
 declare function GetStreamedPlayers(): number[];
-//declare function GetPlayerHeading(player: number): void;
+declare function GetPlayerHeading(player: number): number;
 declare function GetStreamedPickups(): number[];
 declare function StopCameraShake(bImmediate?: boolean): void;
 declare function StartCameraFade(fromAlpha: number, toAlpha: number, duration: number, hexColor?: number): void;
@@ -118,7 +119,8 @@ declare function SetSkySaturation(saturation: number): void;
 declare function GetMouseHitEntity(): number;
 declare function GetPlayerFOV(): number;
 declare function SetPlayerCameraRotation(x: number, y: number, z: number): void;
-//declare function VectorToRotation(x: number, y: number, z: number): void;
+/** @tupleReturn */
+declare function VectorToRotation(x: number, y: number, z: number): [number,number,number];
 declare function SetPlayerCameraLocation(x: number, y: number, z: number): void;
 declare function SetPlayerFOV(fov: number): void;
 declare function GetPlayerCameraViewDistance(): number;
@@ -128,8 +130,10 @@ declare function IsPlayerInMainMenu(): boolean;
 declare function GetDistanceSquared3D(x: number, y: number, z: number, x2: number, y2: number, z2: number): number;
 declare function SetPlayerCameraViewDistance(distance: number): void;
 declare function DrawPoint3D(x: number, y: number, z: number, pointSize?: number, r?: number, g?: number, b?: number): number;
-//declare function NormalizeVector(x: number, y: number, z: number): void;
-//declare function RotationToVector(x: number, y: number, z: number): void;
+/** @tupleReturn */
+declare function NormalizeVector(x: number, y: number, z: number): [number,number,number];
+/** @tupleReturn */
+declare function RotationToVector(x: number, y: number, z: number): [number,number,number];
 declare function GetObjectMass(object: number): number;
 /** @tupleReturn */
 declare function GetMouseHitLocation(): [number, number, number];
@@ -167,7 +171,7 @@ declare function ExecuteWebJS(web: number, Javascript: string): void;
 /** @tupleReturn */
 declare function GetText3DLocation(text3d: number): [number, number, number];
 declare function GetStreamedText3D(): number[];
-//declare function GetVehicleWheelSurface(vehicle, wheel): void;
+declare function GetVehicleWheelSurface(vehicle: number, wheel: number): string;
 declare function GetStreamedVehicles(): number[];
 declare function SetWebURL(web: number, URL: string): void;
 declare function SetWebLocation(web: number, x: number, y: number, z?: number): void;

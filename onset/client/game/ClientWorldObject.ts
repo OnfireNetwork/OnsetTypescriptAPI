@@ -1,12 +1,6 @@
 /** @noSelfInFile */
 
 class ClientWorldObject {
-    /*
-    Unimplemented due to bad docs:
-    GetObjectSize
-    GetObjectModelCount
-    GetObjectModelGroup
-    */
     constructor(private id: number){}
     public getId(): number {
         return this.id;
@@ -26,6 +20,9 @@ class ClientWorldObject {
     public getBoundingBox(): BoundingBox {
         let raw = GetObjectBoundingBox(this.id);
         return new BoundingBox(new Vector3d(raw[0], raw[1], raw[2]), new Vector3d(raw[3], raw[4], raw[5]));
+    }
+    public getSize(): Vector3d {
+        return Vector3d.fromTuple(GetObjectSize(this.id));
     }
     public setHitEventsEnabled(enabled?: boolean): void {
         EnableObjectHitEvents(this.id, enabled);

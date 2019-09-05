@@ -53,6 +53,13 @@ class ClientCamera {
     public getHitEntity(): number {
         return GetMouseHitEntity();
     }
+    public deprojectMouseLocation(): [Vector3d, Vector3d]|undefined {
+        let raw = DeprojectMouseLocationToWorld();
+        if(raw === false){
+            return undefined;
+        }
+        return [new Vector3d(raw[0], raw[1], raw[2]), new Vector3d(raw[3], raw[4], raw[5])];
+    }
     public playDamageFX(value: number): void {
         InvokeDamageFX(value);
     }

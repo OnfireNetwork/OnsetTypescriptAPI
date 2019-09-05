@@ -158,4 +158,10 @@ class Player implements ISticky {
     public isValid(): boolean {
         return IsValidPlayer(this.id);
     }
+    public setWeapon(slot: number, weaponId: number, ammo: number, equip?: boolean): boolean {
+        return SetPlayerWeapon(this.id, weaponId, ammo, equip!==undefined?equip:false, slot);
+    }
+    public getState(): PlayerState {
+        return GetPlayerState(this.id);
+    }
 }

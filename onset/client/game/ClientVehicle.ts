@@ -1,10 +1,6 @@
 /** @noSelfInFile */
 
 class ClientVehicle {
-    /*
-    Not implemented due to unclear docs:
-    GetVehicleWheelSurface
-    */
     constructor(private id: number){}
     public getId(): number {
         return this.id;
@@ -79,5 +75,7 @@ class ClientVehicle {
     public isWheelInAir(wheel: number): boolean {
         return IsVehicleWheelInAir(this.id, wheel);
     }
-
+    public getWheelSurface(wheel: number): string {
+        return GetVehicleWheelSurface(this.id, wheel);
+    }
 }
