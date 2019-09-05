@@ -16,6 +16,9 @@ class GraphicsSettings {
     public setOceanColor(color: Color): void {
         SetOceanColor(color.toHex());
     }
+    public resetOceanColor(): void {
+        ResetOceanColor();
+    }
     public setSkySaturation(saturation: number): void {
         SetSkySaturation(saturation);
     }
