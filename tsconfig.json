@@ -1,14 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "lib": ["esnext"],
-      "strict": true
-    },
-    "include": [
-      "onset/**/*"
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "esnext"
     ],
-    "tstl": {
-      "luaTarget": "JIT"
-    }
+    "strict": true
+  },
+  "include": [
+    "onset/**/*"
+  ],
+  "tstl": {
+    "luaTarget": "JIT"
   }
-  
+}
