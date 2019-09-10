@@ -95,3 +95,5 @@ declare function IsValidPickup(pickupId: number): boolean;
 declare function IsValidPlayer(playerId: number): boolean;
 declare function IsValidText3D(text3DId: number): boolean;
 declare function IsValidVehicle(vehicleId: number): boolean;
+
+declare function GetPlayerPropertyValue(player: number, property: string): string|number|boolean

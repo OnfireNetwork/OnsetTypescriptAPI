@@ -164,3 +164,5 @@ declare function GetLightDimension(light: number): number;
 declare function GetPickupDimension(pickup: number): number;
 declare function GetText3DDimension(text3d: number): number;
 declare function GetNPCDimension(npc: number): number;
+
+declare function SetPlayerPropertyValue(player: number, property: string, value: string|number|boolean): void;

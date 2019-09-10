@@ -50,6 +50,24 @@ class ClientPlayer {
     public getWeapon(slot?: number): number {
         return GetPlayerWeapon(this.id, slot);
     }
+    public getProperty(name: string): string|undefined {
+        let value = GetPlayerPropertyValue(this.id, name);
+        if(typeof value === 'string'){
+            return value;
+        }
+    }
+    public getPropertyNumber(name: string): number|undefined {
+        let value = GetPlayerPropertyValue(this.id, name);
+        if(typeof value === 'number'){
+            return value;
+        }
+    }
+    public getPropertyBoolean(name: string): boolean|undefined {
+        let value = GetPlayerPropertyValue(this.id, name);
+        if(typeof value === 'boolean'){
+            return value;
+        }
+    }
     public static getBoneNames(): string[] {
         return GetPlayerBoneNames();
     }
