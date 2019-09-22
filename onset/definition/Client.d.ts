@@ -116,7 +116,8 @@ declare function GetStreamedPickups(): number[];
 declare function StopCameraShake(bImmediate?: boolean): void;
 declare function StartCameraFade(fromAlpha: number, toAlpha: number, duration: number, hexColor?: number): void;
 declare function SetSkySaturation(saturation: number): void;
-declare function GetMouseHitEntity(): number;
+/** @tupleReturn */
+declare function GetMouseHitEntity(): [number,number];
 declare function GetPlayerFOV(): number;
 declare function SetPlayerCameraRotation(x: number, y: number, z: number): void;
 /** @tupleReturn */

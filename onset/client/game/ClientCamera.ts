@@ -50,8 +50,17 @@ class ClientCamera {
     public getHitLocation(): Vector3d {
         return Vector3d.fromTuple(GetMouseHitLocation());
     }
-    public getHitEntity(): number {
-        return GetMouseHitEntity();
+    public getHitEntity(): ClientVehicle|ClientWorldObject|undefined {
+        let info = GetMouseHitEntity();
+        if(info[0] === 3){
+            return Client.getWorld().getVehicle(info[1]);
+        }
+        if(info[0] === 5){
+            if(info[1] !== 0){
+                return Client.getWorld().getObject(info[1]);
+            }
+        }
+        return undefined;
     }
     public deprojectMouseLocation(): [Vector3d, Vector3d]|undefined {
         let raw = DeprojectMouseLocationToWorld();
