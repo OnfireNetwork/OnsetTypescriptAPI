@@ -15,7 +15,7 @@ class Player implements ISticky {
         return this.getName();
     }
     public getSteamId(): string {
-        return GetPlayerSteamId(this.id);
+        return GetPlayerSteamId(this.id).toString();
     }
     public setVoiceEnabled(enabled: boolean): void {
         SetPlayerVoiceEnabled(this.id, enabled);

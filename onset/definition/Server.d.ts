@@ -71,7 +71,7 @@ declare function GetPlayersInRange3D(x: number, y: number, z: number, range: num
 declare function GetStreamedPlayersForPlayer(playerId: number): number[];
 declare function SetPlayerName(playerId: number, name: string): void;
 declare function GetPlayerName(playerId: number): string;
-declare function GetPlayerSteamId(playerId: number): string;
+declare function GetPlayerSteamId(playerId: number): number;
 //declare function GetPlayerNetworkStats(playerId: number): NetworkStats;
 declare function SetPlayerSpawnLocation(playerId: number, x: number, y: number, z: number, h: number): void;
 declare function IsPlayerStreamedIn(playerId: number, otherPlayerId: number): boolean;
