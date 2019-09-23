@@ -108,7 +108,11 @@ class Player implements ISticky {
         return GetPlayerVehicleSeat(this.id);
     }
     public enterVehicle(vehicle: Vehicle, seat?: number): void {
-        SetPlayerInVehicle(this.id, vehicle.getId(), seat);
+        if(seat !== undefined){
+            SetPlayerInVehicle(this.id, vehicle.getId(), seat);
+        }else{
+            SetPlayerInVehicle(this.id, vehicle.getId());
+        }
     }
     public exitVehicle(): void {
         RemovePlayerFromVehicle(this.id);
@@ -145,9 +149,6 @@ class Player implements ISticky {
     }
     public getDimension(): number {
         return GetPlayerDimension(this.id);
-    }
-    public callRemoteEvent(name: string, ...args: any[]): void {
-        CallRemoteEvent(this.id, name, args);
     }
     public getId(): number {
         return this.id;

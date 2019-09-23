@@ -47,7 +47,11 @@ class WorldManager {
         return new Vehicle(id);
     }
     public createVehicle(modelId: number, location: Vector3d, heading?: number): Vehicle {
-        return this.getVehicle(CreateVehicle(modelId, location.x, location.y, location.z, heading));
+        if(heading !== undefined){
+            return this.getVehicle(CreateVehicle(modelId, location.x, location.y, location.z, heading));
+        }else{
+            return this.getVehicle(CreateVehicle(modelId, location.x, location.y, location.z));
+        }
     }
     public getObject(id: number): WorldObject {
         return new WorldObject(id);

@@ -70,10 +70,18 @@ class ClientWorldManager {
         return new ClientCollisionArea(id);
     }
     public createCollisionBox(position: Vector3d, size: Vector3d, visible?: boolean): ClientCollisionArea {
-        return this.getCollisionArea(CreateCollisionBox(position.x, position.y, position.z, size.x, size.y, size.z, visible));
+        if(visible !== undefined){
+            return this.getCollisionArea(CreateCollisionBox(position.x, position.y, position.z, size.x, size.y, size.z, visible));
+        }else{
+            return this.getCollisionArea(CreateCollisionBox(position.x, position.y, position.z, size.x, size.y, size.z));
+        }
     }
     public createCollisionSphere(position: Vector3d, radius: number, visible?: boolean): ClientCollisionArea {
-        return this.getCollisionArea(CreateCollisionSphere(position.x, position.y, position.z, radius, visible));
+        if(visible !== undefined){
+            return this.getCollisionArea(CreateCollisionSphere(position.x, position.y, position.z, radius, visible));
+        }else{
+            return this.getCollisionArea(CreateCollisionSphere(position.x, position.y, position.z, radius));
+        }
     }
     public setTime(time: number): void {
         SetTime(time);
@@ -88,7 +96,12 @@ class ClientWorldManager {
         SetWaypoint(slot, name, location.x, location.y, location.z);
     }
     public traceLine(start: Vector3d, end: Vector3d, complex?: boolean): LineTraceResult {
-        let tr = LineTrace(start.x, start.y, start.z, end.x, end.y, end.z, complex);
+        let tr: [number, number, number, number, number, number]|false;
+        if(complex !== undefined){
+            tr = LineTrace(start.x, start.y, start.z, end.x, end.y, end.z, complex);
+        }else{
+            tr = LineTrace(start.x, start.y, start.z, end.x, end.y, end.z);
+        }
         if(tr === false){
             return new LineTraceResult();
         }else{
@@ -102,6 +115,10 @@ class ClientWorldManager {
         return GetTerrainHeight(location.x, location.y, startHeight);
     }
     public setWaterLevel(level: number, includeSwimmingLevel?: boolean): void {
-        SetOceanWaterLevel(level, includeSwimmingLevel);
+        if(includeSwimmingLevel !== undefined){
+            SetOceanWaterLevel(level, includeSwimmingLevel);
+        }else{
+            SetOceanWaterLevel(level);
+        }
     }
 }
