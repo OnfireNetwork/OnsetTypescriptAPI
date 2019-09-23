@@ -86,6 +86,8 @@ declare function GetVehicleRotation(vehicleId: number): [number, number, number]
 declare function GetVehicleLightState(vehicleId: number): boolean;
 declare function GetVehicleHealth(vehicleId: number): number;
 declare function GetVehicleTrunkRatio(vehicleId: number): number;
+declare function SetVehiclePropertyValue(vehicle: number, name: string, value: any, bSync?: boolean): void;
+declare function GetVehiclePropertyValue(vehicle: number, name: string): any;
 
 // Validations
 declare function IsValidLight(lightId: number): boolean;

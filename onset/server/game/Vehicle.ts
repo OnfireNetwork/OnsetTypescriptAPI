@@ -119,4 +119,14 @@ class Vehicle implements ISticky {
     public getLightColor(): Color {
         return Color.fromHex(GetVehicleLightColor(this.id));
     }
+    public getProperty(name: string): any {
+        return GetVehiclePropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any, sync?: boolean) {
+        if (sync !== undefined) {
+            SetVehiclePropertyValue(this.id, name, value, sync);
+        } else {
+            SetVehiclePropertyValue(this.id, name, value);
+        }
+    }
 }

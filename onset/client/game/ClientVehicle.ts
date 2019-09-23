@@ -78,4 +78,10 @@ class ClientVehicle {
     public getWheelSurface(wheel: number): string {
         return GetVehicleWheelSurface(this.id, wheel);
     }
+    public getProperty(name: string): any {
+        return GetVehiclePropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any) {
+        SetVehiclePropertyValue(this.id, name, value);
+    }
 }
