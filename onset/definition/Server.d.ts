@@ -165,4 +165,10 @@ declare function GetPickupDimension(pickup: number): number;
 declare function GetText3DDimension(text3d: number): number;
 declare function GetNPCDimension(npc: number): number;
 
-declare function SetPlayerPropertyValue(player: number, property: string, value: string|number|boolean): void;
+//Properties
+declare function SetVehiclePropertyValue(vehicle: number, name: string, value: any, bSync?: boolean): void;
+declare function SetPlayerPropertyValue(player: number, name: string, value: any, bSync?: boolean): void;
+declare function SetObjectPropertyValue(object: number, name: string, value: any, bSync?: boolean): void;
+declare function SetNPCPropertyValue(npc: number, name: string, value: any, bSync?: boolean): void;
+declare function SetText3DPropertyValue(text: number, name: string, value: any, bSync?: boolean): void;
+declare function SetPickupPropertyValue(pickup: number, name: string, value: any, bSync?: boolean): void;

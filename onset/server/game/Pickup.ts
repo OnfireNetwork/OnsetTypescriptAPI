@@ -23,4 +23,14 @@ class Pickup {
     public isValid(): boolean {
         return IsValidPickup(this.id);
     }
+    public getProperty(name: string): any|undefined {
+        return GetPickupPropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any, sync?: boolean) {
+        if(sync !== undefined){
+            SetPickupPropertyValue(this.id, name, value, sync);
+        }else{
+            SetPickupPropertyValue(this.id, name, value);
+        }
+    }
 }

@@ -53,4 +53,14 @@ class NPC {
     public isValid(): boolean {
         return IsValidNPC(this.id);
     }
+    public getProperty(name: string): any|undefined {
+        return GetNPCPropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any, sync?: boolean) {
+        if(sync !== undefined){
+            SetNPCPropertyValue(this.id, name, value, sync);
+        }else{
+            SetNPCPropertyValue(this.id, name, value);
+        }
+    }
 }

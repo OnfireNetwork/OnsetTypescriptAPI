@@ -86,8 +86,6 @@ declare function GetVehicleRotation(vehicleId: number): [number, number, number]
 declare function GetVehicleLightState(vehicleId: number): boolean;
 declare function GetVehicleHealth(vehicleId: number): number;
 declare function GetVehicleTrunkRatio(vehicleId: number): number;
-declare function SetVehiclePropertyValue(vehicle: number, name: string, value: any, bSync?: boolean): void;
-declare function GetVehiclePropertyValue(vehicle: number, name: string): any;
 
 // Validations
 declare function IsValidLight(lightId: number): boolean;
@@ -98,4 +96,10 @@ declare function IsValidPlayer(playerId: number): boolean;
 declare function IsValidText3D(text3DId: number): boolean;
 declare function IsValidVehicle(vehicleId: number): boolean;
 
-declare function GetPlayerPropertyValue(player: number, property: string): string|number|boolean
+//Properties
+declare function GetVehiclePropertyValue(vehicle: number, name: string): any;
+declare function GetPlayerPropertyValue(player: number, name: string): any;
+declare function GetObjectPropertyValue(object: number, name: string): any;
+declare function GetNPCPropertyValue(npc: number, name: string): any;
+declare function GetText3DPropertyValue(text: number, name: string): any;
+declare function GetPickupPropertyValue(pickup: number, name: string): any;

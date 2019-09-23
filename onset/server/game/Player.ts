@@ -165,25 +165,14 @@ class Player implements ISticky {
     public getState(): PlayerState {
         return GetPlayerState(this.id);
     }
-    public getProperty(name: string): string|undefined {
-        let value = GetPlayerPropertyValue(this.id, name);
-        if(typeof value === 'string'){
-            return value;
-        }
+    public getProperty(name: string): any|undefined {
+        return GetPlayerPropertyValue(this.id, name);
     }
-    public getPropertyNumber(name: string): number|undefined {
-        let value = GetPlayerPropertyValue(this.id, name);
-        if(typeof value === 'number'){
-            return value;
+    public setProperty(name: string, value: any, sync?: boolean) {
+        if(sync !== undefined){
+            SetPlayerPropertyValue(this.id, name, value, sync);
+        }else{
+            SetPlayerPropertyValue(this.id, name, value);
         }
-    }
-    public getPropertyBoolean(name: string): boolean|undefined {
-        let value = GetPlayerPropertyValue(this.id, name);
-        if(typeof value === 'boolean'){
-            return value;
-        }
-    }
-    public setProperty(name: string, value: string|number|boolean): void {
-        SetPlayerPropertyValue(this.id, name, value);
     }
 }

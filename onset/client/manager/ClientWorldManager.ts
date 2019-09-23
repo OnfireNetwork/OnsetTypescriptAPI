@@ -57,11 +57,11 @@ class ClientWorldManager {
     public getNPC(id: number): ClientNPC {
         return new ClientNPC(id);
     }
-    public get3DTexts(): Client3DText[] {
+    public get3DTexts(): ClientText3D[] {
         return GetStreamedText3D().map(id => this.get3DText(id));
     }
-    public get3DText(id: number): Client3DText {
-        return new Client3DText(id);
+    public get3DText(id: number): ClientText3D {
+        return new ClientText3D(id);
     }
     public getCollisionAreas(): ClientCollisionArea[] {
         return GetAllCollisions().map(id => this.getCollisionArea(id));

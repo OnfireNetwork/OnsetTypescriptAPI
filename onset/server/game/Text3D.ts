@@ -28,4 +28,14 @@ class Text3D {
     public isValid(): boolean {
         return IsValidText3D(this.id);
     }
+    public getProperty(name: string): any|undefined {
+        return GetText3DPropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any, sync?: boolean) {
+        if(sync !== undefined){
+            SetText3DPropertyValue(this.id, name, value, sync);
+        }else{
+            SetText3DPropertyValue(this.id, name, value);
+        }
+    }
 }

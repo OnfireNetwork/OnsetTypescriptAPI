@@ -39,4 +39,10 @@ class ClientWorldObject {
     public setShadow(shadow: boolean): void {
         SetObjectCastShadow(this.id, shadow);
     }
+    public getProperty(name: string): any|undefined {
+        return GetObjectPropertyValue(this.id, name);
+    }
+    public setProperty(name: string, value: any) {
+        SetObjectPropertyValue(this.id, name, value);
+    }
 }

@@ -200,3 +200,11 @@ declare function AddRemoteEvent(remoteEventName: string, handler: Function): voi
 declare function CallRemoteEvent(eventName: string, ...args: any[]): boolean;
 declare function SetOceanWaterLevel(level: number, includeSwimmingLevel?: boolean): void;
 declare function ResetOceanColor(): void;
+
+//Properties
+declare function SetVehiclePropertyValue(vehicle: number, name: string, value: any): void;
+declare function SetPlayerPropertyValue(player: number, name: string, value: any): void;
+declare function SetObjectPropertyValue(object: number, name: string, value: any): void;
+declare function SetNPCPropertyValue(npc: number, name: string, value: any): void;
+declare function SetText3DPropertyValue(text: number, name: string, value: any): void;
+declare function SetPickupPropertyValue(pickup: number, name: string, value: any): void;
