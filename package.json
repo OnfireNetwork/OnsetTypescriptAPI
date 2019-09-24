@@ -1,6 +1,6 @@
 {
   "name": "@onfire-network/onset-typescript-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "This project wraps the lua scripting api in a object oriented typescript api",
   "repository": {
     "type": "git",

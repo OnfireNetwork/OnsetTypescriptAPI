@@ -1,3 +1,3 @@
 /** @noSelfInFile */
 
-interface ClientEvent {}
+interface ClientEvent extends Event {}

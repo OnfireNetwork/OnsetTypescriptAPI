@@ -1,5 +1,7 @@
 /** @noSelfInFile */
 
+type Class = { new(...args: any[]): any; };
+
 declare function Delay(millis: number, task: Function, ...args: any[]): void;
 // Timers
 declare function GetTimerCount(): number;

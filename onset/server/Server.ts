@@ -1,6 +1,8 @@
 /** @noSelfInFile */
 
 namespace Server {
+    export const event = new EventBus();
+    event.addBridge(new DefaultServerEventBridge());
     export function getTimeSeconds(): number {
         return GetTimeSeconds();
     }
