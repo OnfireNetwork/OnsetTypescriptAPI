@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 class DefaultClientEventBridge implements EventBridge {
-    register(bus: EventBus, name: string){
+    public register(bus: EventBus, name: string): void {
         if(name === 'ClientKeyStateEvent'){
             Client.listen('OnKeyPress', (key: string) => {
                 bus.call(new ClientKeyStateEvent(key, true));
