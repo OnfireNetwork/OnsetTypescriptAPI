@@ -1,0 +1,3 @@
+/** @noSelfInFile */
+
+interface ServerEvent {}

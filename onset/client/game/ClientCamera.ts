@@ -50,12 +50,18 @@ class ClientCamera {
     public getHitLocation(): Vector3d {
         return Vector3d.fromTuple(GetMouseHitLocation());
     }
-    public getHitEntity(): ClientVehicle|ClientWorldObject|undefined {
+    public getHitEntity(): ClientVehicle|ClientWorldObject|ClientNPC|ClientPlayer|undefined {
         let info = GetMouseHitEntity();
-        if(info[0] === 3){
+        if(info[0] === HitType.PLAYER){
+            return Client.getWorld().getPlayer(info[1]);
+        }
+        if(info[0] === HitType.VEHICLE){
             return Client.getWorld().getVehicle(info[1]);
         }
-        if(info[0] === 5){
+        if(info[0] === HitType.NPC){
+            return Client.getWorld().getNPC(info[1]);
+        }
+        if(info[0] === HitType.OBJECT){
             if(info[1] !== 0){
                 return Client.getWorld().getObject(info[1]);
             }

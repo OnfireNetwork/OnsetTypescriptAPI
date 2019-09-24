@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-class Sound {
+class ClientSound {
     constructor(private id: number) { }
     public getId(): number {
         return this.id;
