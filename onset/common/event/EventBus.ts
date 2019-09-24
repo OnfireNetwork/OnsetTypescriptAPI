@@ -6,7 +6,7 @@ class EventBus {
     private listeners: {[key: string]: ((event: any) => void)[]} = {};
     public listen(eventType: Class, handler: (event: any) => void){
         let eventTypeName = eventType.name;
-        let ll = this.listeners.hasOwnProperty(eventTypeName)?this.listeners[eventTypeName]:[];
+        let ll = (this.listeners[eventTypeName] !== undefined)?this.listeners[eventTypeName]:[];
         ll.push(handler);
         this.listeners[eventTypeName] = ll;
         if(!this.registered.includes){
@@ -18,7 +18,7 @@ class EventBus {
     }
     public call(event: Event){
         let eventTypeName = event.constructor.name;
-        if(this.listeners.hasOwnProperty(eventTypeName)){
+        if(this.listeners[eventTypeName] !== undefined){
             for(let listener of this.listeners[eventTypeName]){
                 listener(event);
             }
