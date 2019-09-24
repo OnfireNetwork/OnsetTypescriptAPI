@@ -5,9 +5,8 @@ namespace Client {
     Unimplemented due to missing docs:
     GetNetworkStats
     */
-    export var event: EventBus|undefined;
+    export var event: EventBus = new EventBus();
     export function init(){
-        event = new EventBus();
         event.addBridge(new DefaultClientEventBridge());
     }
     export function getTimeSeconds(): number {

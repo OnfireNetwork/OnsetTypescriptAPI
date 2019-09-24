@@ -1,9 +1,8 @@
 /** @noSelfInFile */
 
 namespace Server {
-    export var event: EventBus|undefined;
+    export var event: EventBus = new EventBus();
     export function init(){
-        event = new EventBus();
         event.addBridge(new DefaultServerEventBridge());
     }
     export function getTimeSeconds(): number {
