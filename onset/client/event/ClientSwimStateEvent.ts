@@ -1,5 +1,5 @@
 /** @noSelfInFile */
 
-class ClientPlayerSwimStateEvent implements ClientEvent {
+class ClientSwimStateEvent implements ClientEvent {
     constructor(public swimming: boolean){}
 }

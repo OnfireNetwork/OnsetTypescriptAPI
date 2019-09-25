@@ -1,5 +1,5 @@
 /** @noSelfInFile */
 
-class ClientPlayerCrouchStateEvent implements ClientEvent {
+class ClientCrouchStateEvent implements ClientEvent {
     constructor(public crouched: boolean){}
 }

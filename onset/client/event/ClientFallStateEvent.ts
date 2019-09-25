@@ -1,5 +1,5 @@
 /** @noSelfInFile */
 
-class ClientPlayerFallStateEvent implements ClientEvent {
+class ClientFallStateEvent implements ClientEvent {
     constructor(public falling: boolean){}
 }
