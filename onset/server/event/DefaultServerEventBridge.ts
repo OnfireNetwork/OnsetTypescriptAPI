@@ -23,11 +23,6 @@ class DefaultServerEventBridge implements EventBridge {
                 bus.call(new ServerPlayerPickupEvent());
             });
         }
-        if(name === 'ServerVehiclePickupEvent'){
-            Server.listen('OnVehiclePickupHit', () => {
-                bus.call(new ServerVehiclePickupEvent());
-            });
-        }
         if(name === 'ServerStreamInEvent'){
             Server.listen('OnPlayerStreamIn', (playerId: number, objectId: number) => {
                 bus.call(new ServerStreamInEvent(Server.getWorld().getPlayer(objectId), Server.getWorld().getPlayer(playerId)));

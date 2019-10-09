@@ -190,6 +190,8 @@ declare function SetIgnoreLookInput(bIgnore: boolean): void;
 declare function GetPlayerCameraForwardVector(): [number, number, number];
 declare function IsShiftPressed(): boolean;
 declare function IsCtrlPressed(): boolean;
+declare function IsCmdPressed(): boolean;
+declare function IsAltPressed(): boolean;
 declare function CreateWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
 declare function CreateRemoteWebUI(x: number, y: number, width: number, height: number, zOrder?: number, frameRate?: number): number;
 declare function ReplaceObjectModelMesh(modelId: number, file: string): boolean;
@@ -200,6 +202,8 @@ declare function AddRemoteEvent(remoteEventName: string, handler: Function): voi
 declare function CallRemoteEvent(eventName: string, ...args: any[]): boolean;
 declare function SetOceanWaterLevel(level: number, includeSwimmingLevel?: boolean): void;
 declare function ResetOceanColor(): void;
+declare function CreateFireworks(modelId: number, x: number, y: number, z: number, rx: number, ry: number, rz: number): void;
+declare function SetMouseLocation(x: number, y: number): void;
 
 //Properties
 declare function SetVehiclePropertyValue(vehicle: number, name: string, value: any): void;

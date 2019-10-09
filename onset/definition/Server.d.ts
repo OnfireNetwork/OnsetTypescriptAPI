@@ -129,6 +129,7 @@ declare function SetVehicleHeading(vehicleId: number, heading: number): void;
 declare function GetVehicleHeading(vehicleId: number): number;
 declare function SetVehicleHealth(vehicleId: number, health: number): void;
 declare function SetVehicleLicensePlate(vehicleId: number, licensePlate: string): void;
+declare function GetVehicleLicensePlate(vehicleId: number): string;
 declare function CreateVehicle(modelId: number, x: number, y: number, z: number, h?: number): number;
 declare function DestroyVehicle(vehicleId: number): void;
 declare function GetVehicleDriver(vehicleId: number): number;
@@ -149,6 +150,15 @@ declare function GetVehicleLightColor(vehicleId: number): number;
 declare function SetVehicleDamage(vehicle: number, damageIndex: number, damage: number): void;
 declare function GetVehicleDamage(vehicle: number, damageIndex: number): number;
 declare function AttachVehicleNitro(vehicle: number, attach?: boolean): void;
+// Doors
+declare function CreateDoor(modelId: number, x: number, y: number, z: number, rotation: number, interactable?: boolean): number;
+declare function SetDoorOpen(doorId: number, open: boolean): void;
+declare function IsDoorOpen(doorId: number): boolean;
+declare function GetDoorModel(doorId: number): number;
+declare function SetDoorLocation(doorId: number, x: number, y: number, z: number, rotation: number): void;
+/** @tupleReturn */
+declare function GetDoorLocation(doorId: number): [number, number, number, number];
+declare function DestroyDoor(doorId: number): void;
 // Dimensions
 declare function SetPlayerDimension(player: number, dimension: number): void;
 declare function SetVehicleDimension(vehicle: number, dimension: number): void;
