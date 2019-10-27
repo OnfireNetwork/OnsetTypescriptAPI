@@ -79,6 +79,16 @@ class DefaultClientEventBridge implements EventBridge {
                 bus.call(new ClientFallStateEvent(false));
             });
         }
+        if(name === 'ClientPlayerStartEnterVehicleEvent'){
+            Client.listen('OnPlayerStartEnterVehicle', (vehicleId: number, seat: number) => {
+                bus.call(new ClientPlayerStartEnterVehicleEvent(Client.getWorld().getVehicle(vehicleId), seat));
+            });
+        }
+        if(name === 'ClientPlayerStartExitVehicleEvent'){
+            Client.listen('OnPlayerStartExitVehicle', (vehicleId: number, seat: number) => {
+                bus.call(new ClientPlayerStartExitVehicleEvent(Client.getWorld().getVehicle(vehicleId), seat));
+            });
+        }
         if(name === 'ClientPlayerEnterVehicleEvent'){
             Client.listen('OnPlayerEnterVehicle', (playerId: number, vehicleId: number, seat: number) => {
                 bus.call(new ClientPlayerEnterVehicleEvent(Client.getWorld().getPlayer(playerId), Client.getWorld().getVehicle(vehicleId), seat));

@@ -83,6 +83,11 @@ class DefaultServerEventBridge implements EventBridge {
                 bus.call(new ServerChatCommandEvent(Server.getWorld().getPlayer(playerId), command, exists === 1));
             });
         }
+        if(name === 'ServerPlayerInteractDoorEvent'){
+            Server.listen('OnPlayerInteractDoor', (playerId: number, door: number, bWantsOpen: number) => {
+                bus.call(new ServerPlayerInteractDoorEvent(Server.getWorld().getPlayer(playerId), Server.getWorld().getObject(door), bWantsOpen === 1));
+            });
+        }
         if(name === 'ServerPlayerEnterVehicleEvent'){
             Server.listen('OnPlayerEnterVehicle', (playerId: number, vehicleId: number, seat: number) => {
                 bus.call(new ServerPlayerEnterVehicleEvent(Server.getWorld().getPlayer(playerId), Server.getWorld().getVehicle(vehicleId), seat));
