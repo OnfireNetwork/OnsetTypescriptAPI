@@ -1,6 +1,9 @@
 # OnsetTypescriptAPI
 Typescript API Wrapper for the Onset API
 
+## Important
+A new build of Onset broke the current build system. To fix it we would need to add an additional post processor step. We thought to freeze it for now as release gets closer and we have not much time left to work on our own gamemodes. Also the OOP Wrapper is probably not updated anymore or even gets removed once we start maintaining this project again.
+
 ## Description
 This framework allows you to develop gamemodes in typescript. It contains definitions for all Onset api functions and wraps them with a nice object-oriented api. It also comes with a build-script to automatically compile all source files into just 2 lua files.
 
